@@ -1,4 +1,4 @@
-//  creating a session object
+// constructor for  a session
 function Session(activityName, startTime, endTime){
     this.activityName = activityName;
     this.startTime = startTime;
@@ -6,5 +6,5 @@ function Session(activityName, startTime, endTime){
     this.duration = startTime + endTime;
 }
 
-// instatiating the session object
+// creating a session object
 let s001 = new Session('Learn javascript', 1000, 1400);

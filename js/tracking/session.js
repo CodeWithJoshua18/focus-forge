@@ -5,7 +5,9 @@ function Session(activityName, startTime, endTime){
     this.endTime = endTime;
     
     this.totalDuration = () => {
-        return this.endTime - this.startTime;
+        const milliseconds = this.endTime - this.startTime;
+        const hours = milliseconds / (1000 * 60 * 60);
+        return hours;
     }
 
     // function to calculate total duration
@@ -13,5 +15,8 @@ function Session(activityName, startTime, endTime){
 }
 
 // creating a session object
-let s001 = new Session('Learn javascript', 1000, 1400);
+let s001 = new Session('Learn javascript', new Date('2026-06-03T10:00:00'), new Date('2026-06-03T14:00:00'));
+
+console.log(s001.activityName);
+
 console.log(s001.totalDuration());

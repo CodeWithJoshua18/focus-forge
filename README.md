@@ -74,7 +74,7 @@ Planned:
 ## Project Structure
 
 ```plaintext
-dev-time-tracker/
+focus-forge/
 │
 ├── index.html
 ├── README.md

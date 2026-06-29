@@ -1,22 +1,44 @@
-// constructor for  a session
-function Session(activityName, startTime, endTime){
-    this.activityName = activityName;
-    this.startTime = startTime;
-    this.endTime = endTime;
-    
-    this.totalDuration = () => {
-        const milliseconds = this.endTime - this.startTime;
-        const hours = milliseconds / (1000 * 60 * 60);
-        return hours;
-    }
+const readline = require('readline');
+let taskList = [];
 
-    // function to calculate total duration
-    
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+function askOption() {
+  rl.question("Choose an option (add, delete, list, clear, exit): ", (option) => {
+    if (option === "add") {
+      rl.question("Enter a task: ", (task) => {
+        taskList.push(task);
+        console.log(`Task added: ${task}`);
+        askOption(); // loop back
+      });
+    } else if (option === "delete") {
+      rl.question("Enter task index to delete: ", (index) => {
+        const i = parseInt(index);
+        if (!isNaN(i) && i >= 0 && i < taskList.length) {
+          console.log(`Deleted: "${taskList[i]}"`);
+          taskList.splice(i, 1);
+        } else {
+          console.log("Invalid index.");
+        }
+        askOption();
+      });
+    } else if (option === "list") {
+      console.log("Tasks:", taskList);
+      askOption();
+    } else if (option === "clear") {
+      taskList = [];
+      console.log("All tasks have been cleared");
+      askOption();
+    } else if (option === "exit") {
+      rl.close();
+    } else {
+      console.log("Unknown option");
+      askOption();
+    }
+  });
 }
 
-// creating a session object
-let s001 = new Session('Learn javascript', new Date('2026-06-03T10:00:00'), new Date('2026-06-03T14:00:00'));
-
-console.log(s001.activityName);
-
-console.log(s001.totalDuration());
+askOption();

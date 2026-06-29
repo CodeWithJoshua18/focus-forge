@@ -75,29 +75,50 @@ Planned:
 
 ```plaintext
 focus-forge/
+
 │
-├── index.html
 ├── README.md
+├── index.html
 ├── .gitignore
 │
+├── assets/
+│
 ├── css/
-│   └── styles.css
+│   ├── styles.css
+│   ├── layout.css
+│   └── components.css
 │
 ├── js/
+│
 │   ├── app.js
+│
+│   ├── tasks/
+│   │
+│   │   ├── taskModel.js
+│   │   ├── taskManager.js
+│   │   ├── taskStorage.js
+│   │   └── taskController.js
 │   │
 │   ├── tracking/
-│   │   ├── session.js
+│   │
+│   │   ├── timer.js
 │   │   ├── tracker.js
-│   │   └── timer.js
+│   │   └── session.js
 │   │
 │   ├── ui/
-│   │   └── dashboard.js
+│   │
+│   │   ├── dashboard.js
+│   │   ├── taskRenderer.js
+│   │   ├── modal.js
+│   │   └── notifications.js
 │   │
 │   └── utils/
+│
+│       ├── helpers.js
+│       ├── validators.js
 │       └── time.js
 │
-└── assets/
+└── docs/
 ```
 
 ---

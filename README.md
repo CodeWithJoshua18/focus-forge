@@ -26,6 +26,7 @@ Future versions will include:
 ---
 
 ## Current Version
+v0.1
 
 ### Week 1 Goals
 

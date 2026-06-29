@@ -33,6 +33,7 @@ v0.1
 The current version focuses on building the core tracking engine using plain JavaScript.
 
 Current features:
+-Managing Tasks(Adding,deleting,updating,searching,sorting)
 - Start a session
 - Stop a session
 - Calculate session duration

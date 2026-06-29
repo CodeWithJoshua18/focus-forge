@@ -1,3 +1,4 @@
+// function to handle creation of tasks
 function createTask(id, title, description, priority, projectId) {
     const now = new Date().toISOString();
     const task = ({

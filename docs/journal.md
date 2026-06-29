@@ -1,12 +1,13 @@
 # Study Journal
 
 ## Date
-29 June 2026
+Monday 29 June 2026
 
 ## What did I learn today? - Modeling a Task
    - Touched on variables and objects
    - Defined objects as a collection of related properties
    - Objects have methods attached to them. I.e Task object method can be adding a task
+   - A good ID should be unique,satble, easy to compare
 
 ## What problem does this solve in Focus Forge?
    - Modeling a task allows for definition of what an object should have before any implementation is done.

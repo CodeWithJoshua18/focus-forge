@@ -1,4 +1,6 @@
 ## Code is easy to change. Architecture is expensive to change
+## Software is data + behaviour
+
 
 ## Chapter Preview
    - Chapter 1: Modelling a task (Objects,Properties,Varibales)

@@ -14,7 +14,7 @@ Instead of traditional screen-time monitoring focused on limiting usage, this pr
 - Reading documentation
 - Working on projects
 
-Future versions will include:
+## Planned Features
 - Goal tracking
 - Streak systems
 - XP and gamification

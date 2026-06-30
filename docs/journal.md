@@ -35,6 +35,7 @@ Monday 29 June 2026
 
  ## What did I learn today? - Task Manager. Where tasks should live
     - Responsible for storing,adding,deleting, and returning tasks.
+    - A predicate is a function that returns true or false.
  ## What problem does this solve in Focus Forge?
  ## Which files changed?
  ## What confused me?

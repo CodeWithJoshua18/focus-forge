@@ -1,8 +1,8 @@
 // function to handle creation of tasks
-export function createTask(id, title, description, priority, projectId) {
+export function createTask(taskId, title, description, priority, projectId) {
     const now = new Date().toISOString();
     const task = ({
-        id,
+        taskId,
         title,
         description,
         priority,

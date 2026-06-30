@@ -15,8 +15,18 @@ Monday 29 June 2026
    - Solves the problem of having separate variables defining properties for one task.
 
 ## Which files changed?
-   - taskModel.js was modified to define what a task is
-
+   - taskModel.js was modified to define what a task is.
+   - I created a createTask function that creates and returns a single task.
 ## What confused me?
-
+  - Chapter 1 concepts were relatively easy to grasp given they are the introductory part of the project.
 ## One thing I want to explore tomorrow.
+ - Building the second part of the architecture, the Task Manager
+
+ ## Date
+ Tuesday 30th June 2026
+
+ ## What did I learn today? - Task Manager. Where tasks should live
+ ## What problem does this solve in Focus Forge?
+ ## Which files changed?
+ ## What confused me?
+ ## One thing I want to explore tomorrow.

@@ -35,22 +35,8 @@ export function deleteTask(taskId) {
 // function to mark a task as completed
 export function markAsCompleted(taskId) {
     const task = taskList.find(task => task.id === taskId);
-
-    if (task) {
-        task.status = "completed";       
-        task.updatedAt = new Date().toISOString(); 
-        return {
-            success: true,
-            message: "Task marked as completed.",
-            task
-        };
-    } else {
-        return {
-            success: false,
-            message: "Task not found.",
-            task: null
-        };
-    }
+    
+    
 }
 
 

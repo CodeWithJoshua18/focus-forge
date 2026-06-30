@@ -15,22 +15,4 @@ console.log("Task added:", newTask, task2);
 console.log("All tasks:\n" + listTasks());
 
 // Mark task as completed
-const result = markAsCompleted(1);
-if (result.success) {
-    console.log(result.message);
-    console.log("Updated task:", result.task);
-} else {
-    console.log(result.message);
-}
 
-const result1 = markAsCompleted(2);
-if (result1.success) {
-    console.log(result1.message);
-    console.log("Updated task:", result1.task);
-} else {
-    console.log(result1.message);
-}
-
-// Delete task
-const deletion = deleteTask(1);
-console.log(deletion.message);

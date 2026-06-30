@@ -1,5 +1,5 @@
 // function to handle creation of tasks
-function createTask(id, title, description, priority, projectId) {
+export function createTask(id, title, description, priority, projectId) {
     const now = new Date().toISOString();
     const task = ({
         id,
@@ -14,7 +14,6 @@ function createTask(id, title, description, priority, projectId) {
     return task;
 }
 
-const newTask = createTask(1, "Fix bug", "Resolve login issue", "high", 101);
-console.log(newTask);
+
 
 

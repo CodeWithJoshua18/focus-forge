@@ -25,7 +25,16 @@ Monday 29 June 2026
  ## Date
  Tuesday 30th June 2026
 
+ ## Learning Objectives
+    - Arrays as a collection
+    - State
+    - Encapsulation
+    - Single source of truth
+    - Separation of concerns
+    - ES Modules
+
  ## What did I learn today? - Task Manager. Where tasks should live
+    - Responsible for storing,adding,deleting, and returning tasks.
  ## What problem does this solve in Focus Forge?
  ## Which files changed?
  ## What confused me?

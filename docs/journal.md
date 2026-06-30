@@ -38,6 +38,11 @@ Monday 29 June 2026
     - A predicate is a function that returns true or false.
     - An operation is idempotent if running it once has the same final effect as running it multiple times.
  ## What problem does this solve in Focus Forge?
+    - Every learning objective for the day touches on the concept of single responsibility,in this case,knowing where one action ,one entitiy lives.
  ## Which files changed?
+    - Today, I worked on taskManager.js file.
+    - Created addTask,listTask,deleteTask,markAsCompleted functions.
  ## What confused me?
+    - Before diving into the concept of ES6 modules, the most challenging part was how to expose functions to other files.
  ## One thing I want to explore tomorrow.
+   - I will be exploring the updating portion of the current project.

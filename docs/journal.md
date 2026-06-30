@@ -36,6 +36,7 @@ Monday 29 June 2026
  ## What did I learn today? - Task Manager. Where tasks should live
     - Responsible for storing,adding,deleting, and returning tasks.
     - A predicate is a function that returns true or false.
+    - An operation is idempotent if running it once has the same final effect as running it multiple times.
  ## What problem does this solve in Focus Forge?
  ## Which files changed?
  ## What confused me?

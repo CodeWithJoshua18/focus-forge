@@ -35,34 +35,60 @@ export function markAsCompleted(taskId) {
     return true;
 }
 
-// updateTask
+// Editable fields whitelist
 const editableFields = [
     "title",
     "description",
     "priority",
     "projectId"
-]
+];
+
+// Update an existing task
 export function updateTask(taskId, updates) {
-    // check for empty updates
-    if (Object.entries(updates).length === 0) return true;
 
-    // search the taskList
-    const task = taskList.find(task => task.taskId === taskId);
+    // Nothing to update
+    if (Object.entries(updates).length === 0) {
+        return true;
+    }
 
-    // validate unavailable task
-    if (!task) return false;
+    // Find the task
+    const task = taskList.find(currentTask => currentTask.id === taskId);
 
-    // check if task is already completed
-    if (task.status === "completed") return false;
+    // Task does not exist
+    if (!task) {
+        return false;
+    }
 
-        // update task
-    Object.entries(updates)
-        .filter(([key]) => editableFields.includes(key))
-        .forEach(([key, value]) => {
-            task[key] = value;
-        });
+    // Completed tasks are immutable
+    if (task.status === "completed") {
+        return false;
+    }
 
-    task.updatedAt = new Date().toISOString();
+    // Track whether any valid field was updated
+    let didAnythingChange = false;
+
+    Object.entries(updates).forEach(([key, value]) => {
+
+        // Ignore immutable fields
+        if (!editableFields.includes(key)) {
+            return;
+        }
+
+        // Skip if the value hasn't actually changed
+        if (task[key] === value) {
+            return;
+        }
+
+        // Apply update
+        task[key] = value;
+        didAnythingChange = true;
+    });
+
+    // Update timestamp only if something changed
+    if (didAnythingChange) {
+        task.updatedAt = new Date().toISOString();
+    }
+
     return true;
 }
 

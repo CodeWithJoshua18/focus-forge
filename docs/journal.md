@@ -70,7 +70,10 @@ Monday 29 June 2026
          6. Test.
          7. Refactor.
          8. Review.
-   -       
+   - How to loop through object properties and what each method should return:
+         1. object.keys() - returns an array of all the top level keys (['ENG', 'ITA', 'FRA']).
+         2. object.values() - returns an array of all values (task info).
+         3. object.entries() - returns an array of [key, value] pairs for looping or destructuring.   
 ## What problem does this solve in Focus Forge?
 ## Which files changed?
 ## What confused me?

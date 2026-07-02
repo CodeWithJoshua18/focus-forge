@@ -43,11 +43,19 @@ const editableFields = [
     "projectId"
 ]
 export function updateTask(taskId, updates) {
+    // check for empty updates
     if (Object.entries(updates).length === 0) return true;
+
+    // search the taskList
     const task = taskList.find(task => task.taskId === taskId);
+
+    // validate unavailable task
     if (!task) return false;
+
+    // check if task is already completed
     if (task.status === "completed") return false;
 
+        // update task
     Object.entries(updates)
         .filter(([key]) => editableFields.includes(key))
         .forEach(([key, value]) => {

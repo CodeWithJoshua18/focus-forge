@@ -52,11 +52,10 @@ export function updateTask(taskId, updates) {
         .filter(([key]) => editableFields.includes(key))
         .forEach(([key, value]) => {
             task[key] = value;
-            return true;
         });
 
     task.updatedAt = new Date().toISOString();
-    
+    return true;
 }
 
 

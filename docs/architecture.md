@@ -8,3 +8,4 @@
 3. A project is considered complete only when all its tasks are completed.
 4. Completed projects should be archived by default rather than permanently deleted.
 5. Permanent deletion should be a deliberate user action and only be available for archived projects.
+6. Completed tasks become read-only to preserve historical accuracy and ensure accountability metrics remain trustworthy.

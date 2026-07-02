@@ -46,3 +46,19 @@ Monday 29 June 2026
     - Before diving into the concept of ES6 modules, the most challenging part was how to expose functions to other files.
  ## One thing I want to explore tomorrow.
    - I will be exploring the updating portion of the current project.
+
+ ## Date
+ Thursday 2nd July 2026
+ 
+ ## Learning Objectives
+   - Partial Updates
+   - Object Merging
+   - Validation
+   - Protecting Immutable fields
+   - Designing Future Express APIs
+
+## What did I learn today?
+## What problem does this solve in Focus Forge?
+## Which files changed?
+## What confused me?
+## One thing I want to explore tomorrow.

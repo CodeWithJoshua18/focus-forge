@@ -11,15 +11,15 @@ export function listTasks() {
     if (taskList.length === 0) {
         return "No tasks..."; 
     } else {
-        return taskList.map((task, index) => {
-            return `${index + 1}. [${task.status}] ${task.title} (ID: ${task.taskId}) Priority: ${task.priority}`;
+        return taskList.map((currentTask, index) => {
+            return `${index + 1}. [${currentTask.status}] ${currentTask.title} (ID: ${currentTask.taskId}) Priority: ${currentTask.priority}`;
         }).join("\n");
     }
 }
 
 // deleteTask
 export function deleteTask(taskId) {
-    const index = taskList.findIndex(task => task.taskId === taskId);
+    const index = taskList.findIndex(currentTask => currentTask.taskId === taskId);
     if (index === -1) return false;
     taskList.splice(index, 1);
     return true;
@@ -27,11 +27,11 @@ export function deleteTask(taskId) {
 
 // markAsCompleted
 export function markAsCompleted(taskId) {
-    const task = taskList.find(task => task.taskId === taskId);
-    if (!task) return false;
-    if (task.status === "completed") return true;
-    task.status = "completed";
-    task.updatedAt = new Date().toISOString();
+    const currentTask = taskList.find(t => t.taskId === taskId);
+    if (!currentTask) return false;
+    if (currentTask.status === "completed") return true;
+    currentTask.status = "completed";
+    currentTask.updatedAt = new Date().toISOString();
     return true;
 }
 
@@ -52,15 +52,15 @@ export function updateTask(taskId, updates) {
     }
 
     // Find the task
-    const task = taskList.find(currentTask => currentTask.id === taskId);
+    const currentTask = taskList.find(t => t.taskId === taskId);
 
     // Task does not exist
-    if (!task) {
+    if (!currentTask) {
         return false;
     }
 
     // Completed tasks are immutable
-    if (task.status === "completed") {
+    if (currentTask.status === "completed") {
         return false;
     }
 
@@ -75,21 +75,19 @@ export function updateTask(taskId, updates) {
         }
 
         // Skip if the value hasn't actually changed
-        if (task[key] === value) {
+        if (currentTask[key] === value) {
             return;
         }
 
         // Apply update
-        task[key] = value;
+        currentTask[key] = value;
         didAnythingChange = true;
     });
 
     // Update timestamp only if something changed
     if (didAnythingChange) {
-        task.updatedAt = new Date().toISOString();
+        currentTask.updatedAt = new Date().toISOString();
     }
 
     return true;
 }
-
-

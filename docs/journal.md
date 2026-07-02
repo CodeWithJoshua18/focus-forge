@@ -75,6 +75,11 @@ Monday 29 June 2026
          2. object.values() - returns an array of all values (task info).
          3. object.entries() - returns an array of [key, value] pairs for looping or destructuring.   
 ## What problem does this solve in Focus Forge?
+   - Allows for every file to handle only one functionality.
+   - This in turn allows for scalability and maintainability.
 ## Which files changed?
+   - Modified taskManager.js file to include updating a task
 ## What confused me?
+   - The second parameter we called updates.
+   - I am looking to dive into it adn fully understand it.
 ## One thing I want to explore tomorrow.

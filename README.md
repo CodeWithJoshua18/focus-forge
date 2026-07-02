@@ -1,8 +1,8 @@
 # focus-forge
 
-A productivity-focused JavaScript project that helps gamify learning and programming time by tracking study and coding sessions.
+A productivity-focused  project that helps gamify learning and programming time by tracking study and coding sessions.
 
-The goal of this project is to evolve from a simple manual session tracker into a full productivity and analytics platform for developers, students, and self-learners.
+The goal is to help people, like me, to build discipline by making progress intentional,measurable, and accountable.
 
 ## Project Vision
 

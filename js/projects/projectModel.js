@@ -5,6 +5,7 @@ export function createProject({
     description = "",
     deadline = null,
 }) {
+    // validate name and id inputs
     if (!id || !name || !name.trim()){
         return false;
     }

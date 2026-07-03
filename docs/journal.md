@@ -90,6 +90,7 @@ Monday 29 June 2026
 
  ## Learning Objectives
    - Project Domain
+   - Project Model
  ## What did I learn today? - What a project is
    - A project is a collection of related tasks working towards a single measurable outcome.
    - A model creates valid task Objects and has three responsibilities:
@@ -98,6 +99,10 @@ Monday 29 June 2026
          3. Protect Business Rules - model is the first place that rejects invalid data.
    - Learnt how to separate what the user is required to provide when they call a function and what the system handles in the background.      
  ## What problem does this solve in Focus Forge?
+   - This answers the question of how a project can keep track of it`s individual tasks.
+   - Tasks are able to identify which project they belong to using the projectId.
  ## Which files changed?
+   - projectModel file was modified to handle the creation of a single project.
  ## What confused me?
+   - So far,so good. The concepts in this file borrowed heavily from the taskModel file.
 

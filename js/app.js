@@ -1,6 +1,6 @@
 import { createTask } from "./tasks/taskModel.js";
 import { addTask, listTasks, updateTask, markAsCompleted } from "./tasks/taskManager.js";
-import { createProject } from "../projects/projectModel.js";
+import { createProject } from "./projects/projectModel.js";
 
 let output = ""; // collect all logs here
 
@@ -38,8 +38,29 @@ output += "After update:\n" + listTasks() + "\n\n";
 // Finally, print everything at once
 console.log(output);
 
-// create a new project
-const project1 = createProject(1, "Create project model","Discuss project model", "today");
 
-console.log("Your created project: ", project1);
+// 1. Create a valid project
+const project1 = createProject({
+    id: 1,
+    name: "Website Redesign",
+    description: "Update UI and UX",
+    deadline: "2026-07-30"
+});
+console.log("Project 1:", project1);
+
+// 2. Create a project with minimal fields (description and deadline optional)
+const project2 = createProject({
+    id: 2,
+    name: "Mobile App Development"
+});
+console.log("Project 2:", project2);
+
+// 3.  creating a project with invalid data (missing name)
+const project3 = createProject({
+    id: 3,
+    name: "   " 
+});
+console.log("Project 3:", project3);
+
+
 

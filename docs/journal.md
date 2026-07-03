@@ -96,6 +96,7 @@ Monday 29 June 2026
          1. Create Valid objects - takes in project info, outputs valid project object.
          2. Apply Defaults - the sytem decides what aspects of a created task needs to default upon creation.
          3. Protect Business Rules - model is the first place that rejects invalid data.
+   - Learnt how to separate what the user is required to provide when they call a function and what the system handles in the background.      
  ## What problem does this solve in Focus Forge?
  ## Which files changed?
  ## What confused me?

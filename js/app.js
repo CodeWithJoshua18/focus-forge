@@ -1,5 +1,6 @@
 import { createTask } from "./tasks/taskModel.js";
 import { addTask, listTasks, updateTask, markAsCompleted } from "./tasks/taskManager.js";
+import { createProject } from "../projects/projectModel.js";
 
 let output = ""; // collect all logs here
 
@@ -36,3 +37,9 @@ output += "After update:\n" + listTasks() + "\n\n";
 
 // Finally, print everything at once
 console.log(output);
+
+// create a new project
+const project1 = createProject(1, "Create project model","Discuss project model", "today");
+
+console.log("Your created project: ", project1);
+

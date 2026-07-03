@@ -92,6 +92,10 @@ Monday 29 June 2026
    - Project Domain
  ## What did I learn today? - What a project is
    - A project is a collection of related tasks working towards a single measurable outcome.
+   - A model creates valid task Objects and has three responsibilities:
+         1. Create Valid objects - takes in project info, outputs valid project object.
+         2. Apply Defaults - the sytem decides what aspects of a created task needs to default upon creation.
+         3. Protect Business Rules - model is the first place that rejects invalid data.
  ## What problem does this solve in Focus Forge?
  ## Which files changed?
  ## What confused me?

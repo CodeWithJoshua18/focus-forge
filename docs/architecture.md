@@ -13,6 +13,7 @@
 8. Completed projects should be archived by default rather than permanently deleted.
 9. Permanent deletion should be a deliberate user action and only be available for archived projects.
 10. Completed tasks become read-only to preserve historical accuracy and ensure accountability metrics remain trustworthy.
+11. A newly created project must receive its first task before it becomes an active working project.
 
 ## Project-Task Relationship
    - Every task belongs to exactly one project through projectId.

@@ -100,6 +100,12 @@ focus-forge/
 │   │   ├── taskManager.js
 │   │   ├── taskStorage.js
 │   │   └── taskController.js
+
+    ├── projects/
+│   │   ├── projectModel.js
+│   │   ├── projectManager.js
+│   │   ├── projectStorage.js
+│       └── projectController.js
 │   │
 │   ├── tracking/
 │   │

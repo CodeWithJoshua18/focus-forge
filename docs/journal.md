@@ -62,7 +62,7 @@ Monday 29 June 2026
          1. Blacklist strategy - specifies what should not be allowed and everything else goes through. caveat? we have to manually define what needs to be hidden every time a new property is added.
          2. Whitelist strategy - specifies what is allowed then automatically rejects everything else
    - Touched on the development process:
-         1. What problem am i soving(gotten from the requirements).
+         1. What problem am i solving(gotten from the requirements).
          2. What are the business rules(what is the system trting to achieve ).
          3. What edge cases exist(scenerios that might break code).
          4. Design an algorithm for it (identify what should be returned once the code runs).

@@ -2,7 +2,7 @@
 
 A productivity-focused  project that helps gamify learning and programming time by tracking study and coding sessions.
 
-The goal is to help people, like me, to build discipline by making progress intentional,measurable, and accountable.
+The goal is to help people, like me,  build discipline by making progress intentional,measurable, and accountable.
 
 ## Project Vision
 

@@ -4,11 +4,15 @@
 ## Project Management
 
 1. A project cannot be deleted if it contains one or more incomplete tasks.
-2. A task can be deleted if it is deemed unnecessary by the user.
-3. A project is considered complete only when all its tasks are completed.
-4. Completed projects should be archived by default rather than permanently deleted.
-5. Permanent deletion should be a deliberate user action and only be available for archived projects.
-6. Completed tasks become read-only to preserve historical accuracy and ensure accountability metrics remain trustworthy.
+2. A project must have a unique ID.
+3. A task can be deleted if it is deemed unnecessary by the user.
+4. A project is considered complete only when all its tasks are completed.
+5. A project starts as active.
+6. A completed project records completedAt.
+7. Project progress is calculated,never stored.
+8. Completed projects should be archived by default rather than permanently deleted.
+9. Permanent deletion should be a deliberate user action and only be available for archived projects.
+10. Completed tasks become read-only to preserve historical accuracy and ensure accountability metrics remain trustworthy.
 
 ## Project-Task Relationship
    - Every task belongs to exactly one project through projectId.

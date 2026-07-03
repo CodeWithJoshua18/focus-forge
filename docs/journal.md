@@ -83,3 +83,16 @@ Monday 29 June 2026
    - The second parameter we called updates.
    - I am looking to dive into it adn fully understand it.
 ## One thing I want to explore tomorrow.
+   - Hop on sprint 2
+
+ ## Date   
+ Friday 3rd July 2026
+
+ ## Learning Objectives
+   - Project Domain
+ ## What did I learn today? - What a project is
+   - A project is a collection of related tasks working towards a single measurable outcome.
+ ## What problem does this solve in Focus Forge?
+ ## Which files changed?
+ ## What confused me?
+

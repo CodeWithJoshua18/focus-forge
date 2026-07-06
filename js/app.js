@@ -1,6 +1,8 @@
 import { createTask } from "./tasks/taskModel.js";
 import { addTask, listTasks, updateTask, markAsCompleted } from "./tasks/taskManager.js";
 import { createProject } from "./projects/projectModel.js";
+import { addProject, listProjects, projectList } from "./projects/projectManager.js";
+
 
 let output = ""; // collect all logs here
 
@@ -61,6 +63,16 @@ const project3 = createProject({
     name: "   " 
 });
 console.log("Project 3:", project3);
+
+// add project to list
+addProject(project1);
+addProject(project2);
+console.log("Current Projects: ", projectList);
+
+// list projects
+listProjects(project1);
+console.log("Your Projects: ", projectList);
+
 
 
 

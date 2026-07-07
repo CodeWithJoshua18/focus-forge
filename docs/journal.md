@@ -121,6 +121,15 @@ Monday 29 June 2026
  Tuesday 7th July 2026
 
  ## Learning Objectives
+   - Module Collaboration
  ## What did I learn today?
+   - some() function:
+      - Answers the question, does at least one item satisfy this condition?
+      - Used whenever the phrase, "At least one", is used.
+   - every() function:  
+      - Asks the question, are all tasks completed? 
+      - Used whenever the phrase, "All...", is used.
  ## What problem does this solve in Focus Forge?
+   - It allows for the enforcement of the business rule that states, aproject can only be deleted if there are no incomplete tasks.
  ## Which Files Changed?
+   - Modified the taskManager file so that it has the helper function that allows projectManager file to find the answer to what it was looking for.

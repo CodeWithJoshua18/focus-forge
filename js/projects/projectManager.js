@@ -14,7 +14,7 @@ export function listProjects(){
     }else{
         projectList.map((currentProject, index) => {
             return `${index + 1}`
-        })
+        }).join("\n");
     }
 }
 

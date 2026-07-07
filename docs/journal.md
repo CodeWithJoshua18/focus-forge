@@ -111,5 +111,8 @@ Monday 29 June 2026
 
  ## Learning Objectives
  ## What did I learn today?
+   - Dove into how the system will manage its projects and tasks.
  ## What problem does this solve in Focus Forge?
+   - Provide single responsibilty for every file.
  ## Which files changed?
+   - projectManager.js file was modified to perform adding,updating,deletion, and listing.

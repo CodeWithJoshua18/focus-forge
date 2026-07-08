@@ -140,5 +140,8 @@ Monday 29 June 2026
  ## Learning Objectives
     - Implement deleteProject functionality.
  ## What did i learn today?
+    - Guard Clauses - They allow for handling of failure immediately instead of nesting code.
  ## What problem does this solve in Focus Forge?
+    - Ensures taht business rules are enforced by the system and anything other than the set conditions cannot run.
  ## Which files changed?  
+    - Modified the projectManager fiel so that it communicates with the taskManager and implemented the delete function.

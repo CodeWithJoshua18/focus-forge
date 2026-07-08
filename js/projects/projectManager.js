@@ -1,3 +1,5 @@
+import { hasIncompleteTasks } from "../tasks/taskManager";
+
 // stroing projects in an array
 export const projectList = [];
 
@@ -72,3 +74,21 @@ export function updateProject(id, updates){
 
     return true;
 };
+
+// delete project
+export function deleteProject(projectId){
+    const index = projectList.findIndex(currentProject => currentProject.id === projectId);
+
+    // check if project exists
+    if(index === -1) return false;
+
+    // check if project has incomplete tasks
+    if(hasIncompleteTasks(projectId)){
+        return false;
+    }
+
+    // delete project
+    projectList.splice(index, 1);
+
+    return true;
+}

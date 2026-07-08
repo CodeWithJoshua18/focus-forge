@@ -133,3 +133,12 @@ Monday 29 June 2026
    - It allows for the enforcement of the business rule that states, aproject can only be deleted if there are no incomplete tasks.
  ## Which Files Changed?
    - Modified the taskManager file so that it has the helper function that allows projectManager file to find the answer to what it was looking for.
+
+ ## Date
+ Wednesday 8th July 2026
+
+ ## Learning Objectives
+    - Implement deleteProject functionality.
+ ## What did i learn today?
+ ## What problem does this solve in Focus Forge?
+ ## Which files changed?  

@@ -28,9 +28,15 @@ export function deleteTask(taskId) {
 // markAsCompleted
 export function markAsCompleted(taskId) {
     const currentTask = taskList.find(t => t.taskId === taskId);
+    
+    // check if task exists
     if (!currentTask) return false;
+
+    // check if task is already marked aa complete
     if (currentTask.status === "completed") return true;
     currentTask.status = "completed";
+
+    // update
     currentTask.updatedAt = new Date().toISOString();
     return true;
 }

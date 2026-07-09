@@ -91,4 +91,30 @@ export function deleteProject(projectId){
     projectList.splice(index, 1);
 
     return true;
+};
+
+// archive project
+export function archiveProject(projectId){
+    const projectIndex = projectList.findIndex(currentProject => currentProject.id === projectId);
+
+    // check if project exists
+    if(projectIndex === -1) return false;
+
+    const currentProject = projectList[projectIndex];
+
+    // check if it has incomplete tasks
+    if(hasIncompleteTasks(projectId)){
+        return false;
+    };
+
+    // check if project is already archived
+    if(currentProject.archived) return true;
+    
+    // update fields
+    currentProject.archived = true;
+    currentProject.status = "completed";
+    currentProject.updatedAt = new Date().toISOString();
+    currentProject.completedAt = new Date().toISOString();
+
+    return true;
 }

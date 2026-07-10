@@ -163,9 +163,14 @@ Monday 29 June 2026
 
  ## Learning Objectives
     - Where does data live.
-    - What happens when abrowser closes.
+    - What happens when a browser closes.
     - Why we separate storage from logic.
     - How real applications restore their state.
+    - Why managers should not know where data is saved.
+    - How taskStorage and projectStorage fit into the architecture.
+    - What serialization means.
+    - Why JSON exists.
+    - How real applications persist state.
  ## What did I learn today?
  ## What problem does this solve in Focus Forge?
  ## Which files changed?

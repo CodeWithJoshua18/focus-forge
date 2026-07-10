@@ -157,3 +157,15 @@ Monday 29 June 2026
     - Provides historical data that can be used for analysis later on as the project grows.
  ## Which files changed? 
     - projectManager file was modified to include the archiveProject functionality.
+
+ ## Date
+ Friday 10th July 2026
+
+ ## Learning Objectives
+    - Where does data live.
+    - What happens when abrowser closes.
+    - Why we separate storage from logic.
+    - How real applications restore their state.
+ ## What did I learn today?
+ ## What problem does this solve in Focus Forge?
+ ## Which files changed?

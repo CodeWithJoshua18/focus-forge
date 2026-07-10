@@ -1,7 +1,7 @@
 import { createTask } from "./tasks/taskModel.js";
 import { addTask, listTasks, updateTask, markAsCompleted } from "./tasks/taskManager.js";
 import { createProject } from "./projects/projectModel.js";
-import { addProject, listProjects, projectList } from "./projects/projectManager.js";
+import { addProject, listProjects, projectList, updateProject, deleteProject, archiveProject } from "./projects/projectManager.js";
 
 
 let output = ""; // collect all logs here
@@ -73,6 +73,13 @@ console.log("Current Projects: ", projectList);
 listProjects(project1);
 console.log("Your Projects: ", projectList);
 
+// update project
+const updateResult1 = updateProject(1, { name: "Website Revamp"});
+console.log("Updated project: ", updateResult1);
+
+// archive project
+const archiveResult1 = archiveProject(1);
+console.log("Archived Project: ", archiveResult1);
 
 
 

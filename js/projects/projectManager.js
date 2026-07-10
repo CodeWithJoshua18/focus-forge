@@ -1,4 +1,5 @@
-import { hasIncompleteTasks } from "../tasks/taskManager";
+import { hasIncompleteTasks } from "../tasks/taskManager.js";
+
 
 // stroing projects in an array
 export const projectList = [];
@@ -72,7 +73,7 @@ export function updateProject(id, updates){
         currentProject.updatedAt = new Date().toISOString();
     }
 
-    return true;
+    return currentProject;
 };
 
 // delete project
@@ -116,5 +117,5 @@ export function archiveProject(projectId){
     currentProject.updatedAt = new Date().toISOString();
     currentProject.completedAt = new Date().toISOString();
 
-    return true;
+    return currentProject;
 }

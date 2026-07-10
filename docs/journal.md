@@ -172,5 +172,11 @@ Monday 29 June 2026
     - Why JSON exists.
     - How real applications persist state.
  ## What did I learn today?
+    - Local storage does not store js objects rather it only stores strings.
+    - JSON packages js objects into a format that can be transmitted or stored.
+    - Serialization -> is the process of converting js objects into a JSON string.
+    - JSON.stringify() -> turn a js object into text (save).
+    - JSON.parse() -> turn text back into js object (load).
+    - Safe Default -> return the most useful default value whenever it makes sense.
  ## What problem does this solve in Focus Forge?
  ## Which files changed?

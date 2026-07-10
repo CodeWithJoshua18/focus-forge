@@ -150,6 +150,10 @@ Monday 29 June 2026
  Thursday 9th July 2026
 
  ## Learning Objectives
+   - Archiving a project.
  ## What did I learn today?  
  ## What problem does this solve in Focus Forge?
+    - Allows a project to be archived after completion.
+    - Provides historical data that can be used for analysis later on as the project grows.
  ## Which files changed? 
+    - projectManager file was modified to include the archiveProject functionality.

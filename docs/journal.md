@@ -179,4 +179,7 @@ Monday 29 June 2026
     - JSON.parse() -> turn text back into js object (load).
     - Safe Default -> return the most useful default value whenever it makes sense.
  ## What problem does this solve in Focus Forge?
+    - Storage is kept persistent. This way,we move from storing tasks in variables and storing them in localStorage.
+    - localStorage in turn will handle saving tasks and loading tasks upon relaunch.
  ## Which files changed?
+    - taskStorage file was modified to include a function for saving tasks and loading tasks.

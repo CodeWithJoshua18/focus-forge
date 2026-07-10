@@ -80,6 +80,3 @@ console.log("Updated project: ", updateResult1);
 // archive project
 const archiveResult1 = archiveProject(1);
 console.log("Archived Project: ", archiveResult1);
-
-
-

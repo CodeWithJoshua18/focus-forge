@@ -202,7 +202,38 @@ Monday 29 June 2026
 
  ## What did I learn today?
     - Implemented handling of tasks inside a controller.
-
+    - Always let the module closest to the responsibility make the decision. I.e:
+      - Storage decides how to save.
+      - Manager decides how to manage data.
+      - Renderer decides how to display data.
+      - Controller decides the workflow.
+      - app.js file decides the startup sequence.
+      - Work flow:
+   Application starts
+        │
+        ▼
+   Load saved data
+        │
+        ▼
+   Initialize managers
+        │
+        ▼
+   Render UI
+        │
+        ▼
+   User interacts
+        │
+        ▼
+   Controllers coordinate actions
+        │
+        ▼
+   Managers update state
+        │
+        ▼
+   Storage persists changes
+        │
+        ▼
+   UI updates   
  ## What problem does this solve in Focus Forge?
     - Controllers act as the intermidiary between the UI and backend processes. Handles inputs from the UI.
 

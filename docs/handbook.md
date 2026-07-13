@@ -1,6 +1,12 @@
 ## Code is easy to change. Architecture is expensive to change
 ## Software is data + behaviour
-
+## Design Pattern:
+   1. Define the responsibility.
+   2. Decide which module owns it.
+   3. Describe the data flow.
+   4. Write the pseudocode.
+   5. Implement the code.
+   6. Review and refine.
 
 ## Chapter Preview
    - Chapter 1: Modelling a task (Objects,Properties,Varibales)

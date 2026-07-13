@@ -188,6 +188,6 @@ Monday 29 June 2026
  Saturday 11th July 2026
 
  ## Learning Objectives 
+    - Review the weeks' content
  ## What did I learn today?
- ## What problem does this solve in Focus Forge?
- ## Which files changed?   
+    - Reviewed the storage concept I worked on.   

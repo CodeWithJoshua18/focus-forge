@@ -190,4 +190,22 @@ Monday 29 June 2026
  ## Learning Objectives 
     - Review the weeks' content
  ## What did I learn today?
-    - Reviewed the storage concept I worked on.   
+    - Reviewed the storage concept I worked on.
+
+ ## Date
+ Monday 13th July 2026
+
+ ## Learning Objectives
+    - Work on the taskController file.
+    - Understand the role of controllers in a project / system.
+    - Understand how rollbacks are used to keep systems robust.
+
+ ## What did I learn today?
+    - Implemented handling of tasks inside a controller.
+
+ ## What problem does this solve in Focus Forge?
+    - Controllers act as the intermidiary between the UI and backend processes. Handles inputs from the UI.
+
+ ## Which files changed?
+    - taskManager file changed to add a getTask() function to expose the taskList to taskController file instead if directly interacting with the state.
+    - taskController file was modified to handle the adding of tasks from the UI.                  

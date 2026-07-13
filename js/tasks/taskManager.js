@@ -101,4 +101,9 @@ export function updateTask(taskId, updates) {
 // check if a project has incomplete tasks
 export function hasIncompleteTasks(projectId){
     return taskList.some(task => task.status !== 'completed' && task.projectId === projectId);
+};
+
+// function to get tasks
+export function getTasks(){
+    return taskList
 }

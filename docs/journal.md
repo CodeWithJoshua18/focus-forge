@@ -248,5 +248,12 @@ Monday 29 June 2026
     - Looked into the different types of API's that can be used:
        1. Internal API's - these are used between modules by exposing specific functions to other modules.
        2. External API's - these include Express,Http and REST API's.
-    - Looked into Domain Driven Design and it is a methodology that uses domains and business rules to design the architecture of a project.       
+    - Looked into Domain Driven Design and it is a methodology that uses domains and business rules to design the architecture of a project.
+    - Managers return domain objects upon successful operation.
+    - Controllers return operation results; true for  successfull operations, false for failed operations. 
+    - Learned about questions to answer before writing code for a feature. They look for exisiting absttactions before cretaing new ones. They include:
+        1. Who owns this responsibility?
+        2. What is the API contract? - when you call a specific function,what should you expect.
+        3. What happens when something fails?   
+        4. Can we reuse something?   
 

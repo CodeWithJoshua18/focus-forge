@@ -239,4 +239,14 @@ Monday 29 June 2026
 
  ## Which files changed?
     - taskManager file changed to add a getTask() function to expose the taskList to taskController file instead if directly interacting with the state.
-    - taskController file was modified to handle the adding of tasks from the UI.                  
+    - taskController file was modified to handle the adding of tasks from the UI.   
+
+ ## Date 
+ Tuesday 14th July 2026.
+
+ ## What did I learn today?
+    - Looked into the different types of API's that can be used:
+       1. Internal API's - these are used between modules by exposing specific functions to other modules.
+       2. External API's - these include Express,Http and REST API's.
+    - Looked into Domain Driven Design and it is a methodology that uses domains and business rules to design the architecture of a project.       
+

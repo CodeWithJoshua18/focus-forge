@@ -105,5 +105,5 @@ export function hasIncompleteTasks(projectId){
 
 // function to get tasks
 export function getTasks(){
-    return taskList
+    return taskList;
 }

@@ -20,4 +20,6 @@ export function handleAddTask(taskData){
     
     // return success if everything runs smoothly
     return true;
-}
+};
+
+// handle completion of tasks

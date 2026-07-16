@@ -269,4 +269,6 @@ Monday 29 June 2026
     - In focus forge,this would like:
       1. Finish all business logic.
       2. Persist changes.
-      3. Then update the UI.         
+      3. Then update the UI.  
+    - Controllers coordinate; managers own business logic.
+    - Design for change.       

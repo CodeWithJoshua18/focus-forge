@@ -255,4 +255,18 @@ Monday 29 June 2026
         1. Who owns this responsibility?
         2. What is the API contract? - when you call a specific function,what should you expect.
         3. What happens when something fails?   
-        4. Can we reuse something?   
+        4. Can we reuse something?  
+
+ ## Date 
+ Wednesday 16th July 2026
+
+ ## Learning Objectives
+    - Implement handleCompleteTask function inside the taskController.
+    - Understand how state and UI interact with each other.
+
+ ## What did I learn today?
+    - Mutate state first, render second. Rendering should happen after the state is stable.
+    - In focus forge,this would like:
+      1. Finish all business logic.
+      2. Persist changes.
+      3. Then update the UI.         

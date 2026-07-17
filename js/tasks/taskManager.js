@@ -29,7 +29,7 @@ export function deleteTask(taskId) {
 export function markAsCompleted(taskId) {
     const currentTask = taskList.find(t => t.taskId === taskId);
     
-    // check if task exists
+    // task not found
     if (!currentTask) return false;
 
     // check if task is already marked aa complete

@@ -276,3 +276,7 @@ Monday 29 June 2026
  ## Date
  Friday 17th July 2026
 
+
+ ## Learning Objectives
+ ## What did I Learn today?
+ ## What files changed?

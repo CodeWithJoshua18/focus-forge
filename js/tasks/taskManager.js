@@ -38,8 +38,8 @@ export function markAsCompleted(taskId) {
 
     // update
     currentTask.updatedAt = new Date().toISOString();
-    return true;
-}
+    return currentTask;
+};
 
 // Editable fields whitelist
 const editableFields = [
@@ -106,4 +106,10 @@ export function hasIncompleteTasks(projectId){
 // function to get tasks
 export function getTasks(){
     return taskList;
-}
+};
+
+// function to render tasks
+export function renderTasks(taskId){
+    const tasks = getTasks();
+    return tasks;
+};

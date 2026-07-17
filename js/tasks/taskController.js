@@ -1,7 +1,7 @@
-import { addTask, getTasks } from "./taskManager.js";
+import { addTask, getTasks, markAsCompleted, renderTasks } from "./taskManager.js";
 import { saveTasks } from "./taskStorage.js";
 import { createTask } from "./taskModel.js";
-
+import { archiveProject } from "../projects/projectManager.js";
 
 // handle task adding
 export function handleAddTask(taskData){
@@ -23,3 +23,24 @@ export function handleAddTask(taskData){
 };
 
 // handle completion of tasks
+export function handleCompleteTask(taskId){
+    // mark task as completed
+    const completedTask = markAsCompleted(taskId);
+
+    // task not found
+    if (!completedTask) return false;
+
+    // save task
+    const tasks = getTasks();
+    saveTasks(tasks);
+
+    // if task belongs to a project,archive it
+    if (completedTask.projectId){
+        archiveProject(completedTask.projectId);
+    }
+
+    // display tasks
+    renderTasks(tasks);
+
+    return true;
+};

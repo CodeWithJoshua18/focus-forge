@@ -279,4 +279,7 @@ Monday 29 June 2026
 
  ## Learning Objectives
  ## What did I Learn today?
+    - Implemented handleCompleteTask function
  ## What files changed?
+    - taskManager file was modified to implement a function to render tasks.
+    - taskControlle file was modified to implement the handleCompleteTask function.

@@ -258,7 +258,7 @@ Monday 29 June 2026
         4. Can we reuse something?  
 
  ## Date 
- Wednesday 16th July 2026
+ Thursday 16th July 2026
 
  ## Learning Objectives
     - Implement handleCompleteTask function inside the taskController.
@@ -271,4 +271,8 @@ Monday 29 June 2026
       2. Persist changes.
       3. Then update the UI.  
     - Controllers coordinate; managers own business logic.
-    - Design for change.       
+    - Design for change.
+
+ ## Date
+ Friday 17th July 2026
+

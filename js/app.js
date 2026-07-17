@@ -2,7 +2,7 @@ import { createTask } from "./tasks/taskModel.js";
 import { addTask, listTasks, updateTask, markAsCompleted } from "./tasks/taskManager.js";
 import { createProject } from "./projects/projectModel.js";
 import { addProject, listProjects, projectList, updateProject, deleteProject, archiveProject } from "./projects/projectManager.js";
-
+import { handleAddTask, handleCompleteTask } from "./tasks/taskController.js";
 
 let output = ""; // collect all logs here
 
@@ -80,3 +80,21 @@ console.log("Updated project: ", updateResult1);
 // archive project
 const archiveResult1 = archiveProject(1);
 console.log("Archived Project: ", archiveResult1);
+
+
+// Test adding a task
+const testTask = {
+    title: "Finish documentation",
+    description: "Write the API docs",
+    projectId: null // change to a valid project ID to test archiving
+};
+
+const addResult = handleAddTask(testTask);
+console.log("Add task result:", addResult);
+
+// Test completing a task
+// Assuming the task you just added has ID 1 (depends on your task model)
+const completeResult = handleCompleteTask(1);
+console.log("Complete task result:", completeResult);
+
+

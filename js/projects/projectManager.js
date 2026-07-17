@@ -2,7 +2,7 @@ import { hasIncompleteTasks } from "../tasks/taskManager.js";
 
 
 // stroing projects in an array
-export const projectList = [];
+ const projectList = [];
 
 // add projects
 export function addProject(project){

@@ -286,3 +286,9 @@ Monday 29 June 2026
  ## What files changed?
     - taskManager file was modified to implement a function to render tasks.
     - taskController file was modified to implement the handleCompleteTask function.
+
+ ## Date
+ Monday 20th July 2026
+
+ ## What did I learn today?
+    - Defensive Design -> This is where by you decide which function is responsible for ensuring correctness.

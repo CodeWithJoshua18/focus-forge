@@ -252,10 +252,13 @@ Monday 29 June 2026
     - Managers return domain objects upon successful operation.
     - Controllers return operation results; true for  successfull operations, false for failed operations. 
     - Learned about questions to answer before writing code for a feature. They look for exisiting abstractions before creating new ones. They include:
-        1. Who owns this responsibility?
-        2. What is the API contract? - when you call a specific function,what should you expect.
-        3. What happens when something fails?   
-        4. Can we reuse something?  
+        1. What is the responsibility?
+        2. Who owns the responsibility?
+        3. Who owns the data?
+        4. What is the smallest API I need? - expose only what is necessary
+        5. What is the API contract? - when you call a specific function,what should you expect.
+        6. What happens when something fails?   
+        7. Can we reuse something?  
 
  ## Date 
  Thursday 16th July 2026

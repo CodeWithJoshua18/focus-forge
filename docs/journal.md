@@ -282,4 +282,4 @@ Monday 29 June 2026
     - Implemented handleCompleteTask function
  ## What files changed?
     - taskManager file was modified to implement a function to render tasks.
-    - taskControlle file was modified to implement the handleCompleteTask function.
+    - taskController file was modified to implement the handleCompleteTask function.

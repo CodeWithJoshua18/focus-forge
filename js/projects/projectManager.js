@@ -118,4 +118,5 @@ export function archiveProject(projectId){
     currentProject.completedAt = new Date().toISOString();
 
     return currentProject;
-}
+};
+

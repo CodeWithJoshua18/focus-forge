@@ -301,7 +301,9 @@ Monday 29 June 2026
     - implement setTask functionality.
 
  ## What did I learn today?
-    - I learned jow managers synchronize their internal state.  
+    - I learned job managers synchronize their internal state. This is referred to as, State Synchronization.
+    - When determining a general rule for the order of intialization, we initialize modules in dependancy order. That is to mean that, a module should be initialized only after all of the modules it depends on have already been initialized. This referred to as, Dependancy Analysis.  
 
  ## What files changed?
-    - taskManager  file was modified to implement synchronization of tasks during loading of the application.      
+    - taskManager  file was modified to implement synchronization of tasks during loading of the application.
+        

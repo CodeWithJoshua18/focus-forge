@@ -103,6 +103,17 @@ export function hasIncompleteTasks(projectId){
     return taskList.some(task => task.status !== 'completed' && task.projectId === projectId);
 };
 
+// function to set tasks
+export function setTasks(tasks){
+    // clear collection
+    taskList.length = 0;
+
+    // copy tasks
+    tasks.forEach(task => {
+        taskList.push(task);
+    })
+};
+
 // function to get tasks
 export function getTasks(){
     return taskList;

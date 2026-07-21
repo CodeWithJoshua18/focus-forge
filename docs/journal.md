@@ -299,3 +299,9 @@ Monday 29 June 2026
 
  ## Learning Objectives
     - implement setTask functionality.
+
+ ## What did I learn today?
+    - I learned jow managers synchronize their internal state.  
+
+ ## What files changed?
+    - taskManager  file was modified to implement synchronization of tasks during loading of the application.      

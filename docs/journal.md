@@ -292,3 +292,10 @@ Monday 29 June 2026
 
  ## What did I learn today?
     - Defensive Design -> This is where by you decide which function is responsible for ensuring correctness.
+
+
+ ## Date 
+ Tuesday 21st July 2026
+
+ ## Learning Objectives
+    - implement setTask functionality.

@@ -120,3 +120,18 @@ export function archiveProject(projectId){
     return currentProject;
 };
 
+// set projects
+export function setProjects(projects){
+    // clear collection
+    projectList.length = 0;
+
+    // copy projects
+    projects.forEach(project => {
+        projectList.push(project);
+    })
+};
+
+// get projects
+export function getProjects(){
+    return projectList;
+}

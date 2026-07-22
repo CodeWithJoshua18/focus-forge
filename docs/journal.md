@@ -312,6 +312,8 @@ Monday 29 June 2026
  Wednesday 22nd July 2026
 
  ## Learning Objectives
+    - Implement set and get functionalities in project manager.
+    - Implement storage persistence for projects.
  ## What did I learn today?
  ## What files changed?   
         

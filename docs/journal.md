@@ -315,5 +315,6 @@ Monday 29 June 2026
     - Implement set and get functionalities in project manager.
     - Implement storage persistence for projects.
  ## What did I learn today?
- ## What files changed?   
+ ## What files changed? 
+    - project manager file was modified to include getting and setting of projects.  
         

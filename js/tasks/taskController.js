@@ -72,7 +72,7 @@ export function handleDeleteTask(taskId){
     // task not found
     if(!deletedTask) return false;
 
-    // persist new state afteer deletion
+    // persist new state after deletion
     const tasks = getTasks();
     saveTasks(tasks);
 

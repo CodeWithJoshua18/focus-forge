@@ -327,5 +327,14 @@ Monday 29 June 2026
 
  ## What did I learn today?
     - I touched on the concept of single source of truth.It describes what module owns the truth and how other modules depend on it.
-    - It helps maintain the new state after an action has been carried out.          
+    - It helps maintain the new state after an action has been carried out.
+
+ ## What does this solve in focus forge?
+    - The task controller orchestrates communication between the UI and the backend.
+
+ ## What files changed?
+    - Modified taskController to handle the deletion and updating of tasks.
+
+ ## One thing I want to explore tomorrow?
+    - I am looking forawrd to implementing project controller on my own.                      
         

@@ -316,5 +316,12 @@ Monday 29 June 2026
     - Implement storage persistence for projects.
  ## What did I learn today?
  ## What files changed? 
-    - project manager file was modified to include getting and setting of projects.  
+    - project manager file was modified to include getting and setting of projects.
+
+ ## Date
+ Thursday 23rd July 2026
+
+ ## Learning Objectives
+    - implement handleUpdateTask()
+    - implement handleDeleteTask()      
         

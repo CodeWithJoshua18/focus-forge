@@ -323,5 +323,9 @@ Monday 29 June 2026
 
  ## Learning Objectives
     - implement handleUpdateTask()
-    - implement handleDeleteTask()      
+    - implement handleDeleteTask()
+
+ ## What did I learn today?
+    - I touched on the concept of single source of truth.It describes what module owns the truth and how other modules depend on it.
+    - It helps maintain the new state after an action has been carried out.          
         

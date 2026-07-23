@@ -1,4 +1,4 @@
-import { addTask, getTasks, markAsCompleted, renderTasks, updateTask, updateTask } from "./taskManager.js";
+import { addTask, getTasks, markAsCompleted, renderTasks, updateTask, updateTask, deleteTask } from "./taskManager.js";
 import { saveTasks } from "./taskStorage.js";
 import { createTask } from "./taskModel.js";
 import { archiveProject } from "../projects/projectManager.js";
@@ -61,5 +61,24 @@ export function handleUpdateTask(taskId, updates){
     renderTasks(tasks);
 
     // handle successful update
+    return true;
+};
+
+// handle deletion of tasks
+export function handleDeleteTask(taskId){
+    // call delete task function
+    const deletedTask = deleteTask(taskId);
+
+    // task not found
+    if(!deletedTask) return false;
+
+    // persist new state afteer deletion
+    const tasks = getTasks();
+    saveTasks(tasks);
+
+    // render tasks
+    renderTasks(tasks);
+
+    // handle successful deletion
     return true;
 };

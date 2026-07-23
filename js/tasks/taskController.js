@@ -1,24 +1,24 @@
-import { addTask, getTasks, markAsCompleted, renderTasks } from "./taskManager.js";
+import { addTask, getTasks, markAsCompleted, renderTasks, updateTask, updateTask } from "./taskManager.js";
 import { saveTasks } from "./taskStorage.js";
 import { createTask } from "./taskModel.js";
 import { archiveProject } from "../projects/projectManager.js";
 
-// handle task adding
+// handle addition of tasks
 export function handleAddTask(taskData){
     // create a task
     const task = createTask(taskData);
 
-    // handle creation of task failure
+    // task not found
     if (!task) return false;
 
     // call add task function
     if (!addTask(task)) return false;
 
-    // call save task
+    //  save task
     const saveTask = getTasks();
     saveTasks(saveTask);
     
-    // return success if everything runs smoothly
+    // return success 
     return true;
 };
 
@@ -42,5 +42,24 @@ export function handleCompleteTask(taskId){
     // display tasks
     renderTasks(tasks);
 
+    return true;
+};
+
+// handle updating of tasks
+export function handleUpdateTask(taskId, updates){
+    // call update task function
+    const updatedTask = updateTask(taskId, updates);
+
+    // task not found
+    if(!updatedTask) return false;
+
+    // save tasks
+    const tasks = getTasks();
+    saveTasks(tasks);
+
+    // render tasks
+    renderTasks(tasks);
+
+    // handle successful update
     return true;
 };

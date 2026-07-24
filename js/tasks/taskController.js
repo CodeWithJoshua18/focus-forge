@@ -8,10 +8,10 @@ export function handleAddTask(taskData){
     // create a task
     const task = createTask(taskData);
 
-    // task not found
+    // task creation failed
     if (!task) return false;
 
-    // call add task function
+    // addition of task failed
     if (!addTask(task)) return false;
 
     //  save task

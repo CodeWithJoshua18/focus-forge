@@ -1,5 +1,5 @@
 import { createProject } from "./projectModel";
-import { addProject, getProjects } from "./projectManager";
+import { addProject, getProjects, renderProjects } from "./projectManager";
 import { saveProjects } from "./projectStorage";
 
 // handle addition of projects
@@ -19,4 +19,7 @@ export function handleAddProject(projectData){
 
     // successful addition
     return true;
+
+    // render projects
+    renderProjects(projects);
 };

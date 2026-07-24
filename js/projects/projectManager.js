@@ -134,4 +134,10 @@ export function setProjects(projects){
 // get projects
 export function getProjects(){
     return projectList;
+};
+
+// render projects
+export function renderProjects(projectId){
+    const projects = getProjects();
+    return projects;
 }

@@ -20,6 +20,9 @@ export function handleAddTask(taskData){
     
     // return success 
     return true;
+
+    // display tasks
+    renderTasks(tasks);
 };
 
 // handle completion of tasks

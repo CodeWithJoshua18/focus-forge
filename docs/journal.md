@@ -342,5 +342,8 @@ Monday 29 June 2026
  Friday 24th July 2026    
 
  ## Learning Objectives
-    - Create the projectController.                      
+    - Create the projectController.
+
+ ## What did I learn today?
+    - Software architecture is less about building the most sophisticted design,rather it is about building the simplest design that satidfies today's requirements.                          
         

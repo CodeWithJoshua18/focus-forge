@@ -339,5 +339,8 @@ Monday 29 June 2026
     - I am looking forawrd to implementing project controller on my own.
 
  ## Date
- Friday 24th July 2026                          
+ Friday 24th July 2026    
+
+ ## Learning Objectives
+    - Create the projectController.                      
         

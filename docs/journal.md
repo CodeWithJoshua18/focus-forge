@@ -336,7 +336,7 @@ Monday 29 June 2026
     - Modified taskController to handle the deletion and updating of tasks.
 
  ## One thing I want to explore tomorrow?
-    - I am looking forawrd to implementing project controller on my own.
+    - I am looking forward to implementing project controller on my own.
 
  ## Date
  Friday 24th July 2026    

@@ -314,7 +314,7 @@ Monday 29 June 2026
  ## Learning Objectives
     - Implement set and get functionalities in project manager.
     - Implement storage persistence for projects.
- ## What did I learn today?
+
  ## What files changed? 
     - project manager file was modified to include getting and setting of projects.
 
@@ -336,5 +336,8 @@ Monday 29 June 2026
     - Modified taskController to handle the deletion and updating of tasks.
 
  ## One thing I want to explore tomorrow?
-    - I am looking forawrd to implementing project controller on my own.                      
+    - I am looking forawrd to implementing project controller on my own.
+
+ ## Date
+ Friday 24th July 2026                          
         

@@ -366,3 +366,5 @@ Monday 29 June 2026
        2. public contracts.
        3. hidden implementation.
     - I also learned that when coming up with modules / classes,I should think in verbs and not screens. i.e taskStorage; persists data.    
+    - I touched on the concept of separate computation from side effects, where computation is a pure function that takes input and produces output. No external changes. On the other hand, side effects are anything that changes state outside the function i.e printing, sending http requests, writing files,updating UI.
+    - Learned about composition root, this is where the application is assembled.

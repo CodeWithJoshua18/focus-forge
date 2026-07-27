@@ -345,5 +345,13 @@ Monday 29 June 2026
     - Create the projectController.
 
  ## What did I learn today?
-    - Software architecture is less about building the most sophisticted design,rather it is about building the simplest design that satidfies today's requirements.                          
+    - Software architecture is less about building the most sophisticted design,rather it is about building the simplest design that satidfies today's requirements.
+
+ ## What files changed?
+    - ProjectController was modified to include handling of project addition.                              
         
+ ## Date
+ Monday 27th July 2026
+
+ ## Learning Objectives
+    - Understand the presentation layer(view).        

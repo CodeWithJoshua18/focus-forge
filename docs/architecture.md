@@ -23,4 +23,22 @@
 
  ##  Architecture design
     - The view Module owns all DOM knowledge. 
-    - Dependancies should point downward.This is to say that each layer may depend on the layer directly beneath it.  
+    - Dependancies should point downward.This is to say that each layer may depend on the layer directly beneath it.
+
+ ## Dependancy flow
+        Presentation
+          (View)
+
+            ↓
+
+        Controller
+
+            ↓
+
+         Business
+      (Manager + Model)
+
+            ↓
+
+          Data
+        (Storage) 

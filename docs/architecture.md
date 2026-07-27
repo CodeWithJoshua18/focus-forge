@@ -21,5 +21,5 @@
    - Whenever a project's tasks are needed, the system retrieves all tasks whose projectId matches the project's id.
    - Project statistics such as task count, completed tasks, and progress are calculated, not stored.
 
- ## Version 1 Architecture design
-    - Any controller that changes application state is responsible for refreshing the affected UI.   
+ ##  Architecture design
+    - The view Module owns all DOM knowledge.   

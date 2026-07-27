@@ -354,4 +354,8 @@ Monday 29 June 2026
  Monday 27th July 2026
 
  ## Learning Objectives
-    - Understand the presentation layer(view).        
+    - Understand the presentation layer(view).  
+
+ ## What did I learn today?
+    - I observed that the presentation layer has two responsibilities; collect user interaction and to display updated state.
+    - Interaction functions start with bind. This is because they are binding the UI to the application's behaviour. i.e. bindDeleteTask(), the view is saying,whenever a user clicks the delete button,I'll call this handler.

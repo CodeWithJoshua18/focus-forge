@@ -365,3 +365,4 @@ Monday 29 June 2026
        1. private internals.
        2. public contracts.
        3. hidden implementation.
+    - I also learned that when coming up with modules / classes,I should think in verbs and not screens. i.e taskStorage; persists data.    

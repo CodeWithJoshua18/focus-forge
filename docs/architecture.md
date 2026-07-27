@@ -22,4 +22,5 @@
    - Project statistics such as task count, completed tasks, and progress are calculated, not stored.
 
  ##  Architecture design
-    - The view Module owns all DOM knowledge.   
+    - The view Module owns all DOM knowledge. 
+    - Dependancies should point downward.This is to say that each layer may depend on the layer directly beneath it.  

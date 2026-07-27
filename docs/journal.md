@@ -354,8 +354,14 @@ Monday 29 June 2026
  Monday 27th July 2026
 
  ## Learning Objectives
-    - Understand the presentation layer(view).  
+    - Understand the presentation layer(view).
+    - Understand dependancy direction -> who is allowed to depend on whom.  
 
  ## What did I learn today?
     - I observed that the presentation layer has two responsibilities; collect user interaction and to display updated state.
     - Interaction functions start with bind. This is because they are binding the UI to the application's behaviour. i.e. bindDeleteTask(), the view is saying,whenever a user clicks the delete button,I'll call this handler.
+    - I got to explore one pillar of software design, Encapsulation, which is,hide implementation, expose capability.
+    - I also got to understand that modules have the following in common:
+       1. private internals.
+       2. public contracts.
+       3. hidden implementation.

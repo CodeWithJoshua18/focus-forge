@@ -368,3 +368,13 @@ Monday 29 June 2026
     - I also learned that when coming up with modules / classes,I should think in verbs and not screens. i.e taskStorage; persists data.    
     - I touched on the concept of separate computation from side effects, where computation is a pure function that takes input and produces output. No external changes. On the other hand, side effects are anything that changes state outside the function i.e printing, sending http requests, writing files,updating UI.
     - Learned about composition root, this is where the application is assembled.
+
+ ## Date
+ Tuesday 28th July 2026
+
+ ## Learning Objectives
+    - Implement renderTask that defines the format of the displayed task.
+    - Implement renderTasks that loops over each task and call the renderTask function to display each task with the defined format.
+
+ ## What did I learn today?
+    - I learned about how to create a function that returns a format we want used when displaying individual tasks and another that loops over the tasks then calls the renderTask function.        

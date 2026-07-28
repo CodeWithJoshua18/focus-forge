@@ -2,10 +2,9 @@
 ## A Business rule exists because of what the apllication is trying to achieve,not because of technical limitations
 
 ## Project Management
-
 1. A project cannot be deleted if it contains one or more incomplete tasks.
 2. A project must have a unique ID.
-3. A task can be deleted if it is deemed unnecessary by the user.
+3. Only tasks that are not required for historical records may be permernently.
 4. A project is considered complete only when all its tasks are completed.
 5. A project starts as active.
 6. A completed project records completedAt.
@@ -13,7 +12,7 @@
 8. Completed projects should be archived by default rather than permanently deleted.
 9. Permanent deletion should be a deliberate user action and only be available for archived projects.
 10. Completed tasks become read-only to preserve historical accuracy and ensure accountability metrics remain trustworthy.
-11. A newly created project must receive its first task before it becomes an active working project.
+11. A newly created project remains in a draft state until its first task is added.
 
 ## Project-Task Relationship
    - Every task belongs to exactly one project through projectId.
@@ -21,9 +20,23 @@
    - Whenever a project's tasks are needed, the system retrieves all tasks whose projectId matches the project's id.
    - Project statistics such as task count, completed tasks, and progress are calculated, not stored.
 
- ##  Architecture design
-    - The view Module owns all DOM knowledge. 
-    - Dependancies should point downward.This is to say that each layer may depend on the layer directly beneath it.
+ ## Architecture design principles
+   1. Every domain owns:
+      - Model
+      - manager
+      - storage
+      - controller
+      - view
+   2. Managers maintain state.
+   3. Storage persists state.
+   4. Controllers orchestrate.
+   5. Views collect user interaction and present state.
+   6. Comments describe responsibilty, not implementation.
+   7. Pass data downward instead of allowing lower layers to fetch it.
+   8. Prefer small functions with a single responsibility.
+   9. Delay side effects until the last possible moment.  
+   10. Hide implementation, expose capabilities.
+   11. Separate computation from side effects.  
 
  ## Dependancy flow architecture
         Presentation
@@ -32,6 +45,7 @@
             ↓
 
         Controller
+       (Application)
 
             ↓
 

@@ -377,4 +377,10 @@ Monday 29 June 2026
     - Implement renderTasks that loops over each task and call the renderTask function to display each task with the defined format.
 
  ## What did I learn today?
-    - I learned about how to create a function that returns a format we want used when displaying individual tasks and another that loops over the tasks then calls the renderTask function.        
+    - I learned about how to create a function that returns a format we want used when displaying individual tasks and another that loops over the tasks then calls the renderTask function.
+    - I learned that every view has two responsibilities:
+      1. Collect user interaction.
+      2. Present the current state of its domain.
+        
+
+ ## What files changed?            

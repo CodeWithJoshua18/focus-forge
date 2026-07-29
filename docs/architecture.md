@@ -22,11 +22,11 @@
 
  ## Architecture design principles
    1. Every domain owns:
-      - Model
-      - manager
-      - storage
-      - controller
-      - view
+      - Model -> defines what a valid domain object looks like and guarantees that every object created by the application starts in a valid state.
+      - manager -> maintains collections and enforces business rules.
+      - storage -> persists and retrieves application state.
+      - controller - coordinates user actions between the view, manager, and storage.
+      - view -> collects user interactionss and presents the current state.
    2. Managers maintain state.
    3. Storage persists state.
    4. Controllers orchestrate.
@@ -56,3 +56,12 @@
 
           Data
         (Storage) 
+
+ ## Business Rule Ownership
+    - Business rules that depend on the state or relationships of multiple domain objects belong in the Manager.
+    - The Model validates individual objects.
+    - The Manager validates operations on collections.   
+
+ ## Validation Responsibility
+    - The model validates object integrity.
+    - The manager validates business operations.          

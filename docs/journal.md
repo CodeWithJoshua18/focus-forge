@@ -384,4 +384,12 @@ Monday 29 June 2026
     - Learned about helper functions -> small functions that help other functions perform part of its work.    
 
  ## What files changed?     
-    - taskView file was modified to implement rendering of  a single task as well as task collections.       
+    - taskView file was modified to implement rendering of  a single task as well as task collections.
+
+ ## Date
+ Wednesday 29th July 2026
+
+ ## Learning Objectives
+
+ ## What did I learn today?
+    - I learned about invariants -> it is something that must always be true. i.e. a task always has an id,a title etc.           

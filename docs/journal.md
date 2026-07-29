@@ -383,4 +383,5 @@ Monday 29 June 2026
       2. Present the current state of its domain.
     - Learned about helper functions -> small functions that help other functions perform part of its work.    
 
- ## What files changed?            
+ ## What files changed?     
+    - taskView file was modified to implement rendering of  a single task as well as task collections.       

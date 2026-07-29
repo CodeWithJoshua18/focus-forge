@@ -64,4 +64,8 @@
 
  ## Validation Responsibility
     - The model validates object integrity.
-    - The manager validates business operations.          
+    - The manager validates business operations.  
+
+ ## Persistence Principle
+    - Storage is only invoked after the application's state has successfully changed.
+    - Failed operations do not trigger persistence.            

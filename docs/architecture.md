@@ -64,7 +64,8 @@
 
  ## Validation Responsibility
     - The model validates object integrity.
-    - The manager validates business operations.  
+    - The manager validates business operations and returns domain results(expected failures).
+    - Storage throws exceptions for technical failures(unexpected failures). 
 
  ## Persistence Principle
     - Storage is only invoked after the application's state has successfully changed.

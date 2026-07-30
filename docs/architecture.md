@@ -95,4 +95,8 @@
     - A manager may ask another manager for information, but it remains responsible for enforcing the business rules of its own domain.
     - Example:
       - taskManager answers: "Does this project have incomplete tasks?"
-      - projectManager decides: "Can this project be deleted?"                
+      - projectManager decides: "Can this project be deleted?"    
+
+ ## Future refactor
+    - Controllers currently trigger persistence.
+    - Consider movinng persistence responsibility into managers, since managers own state changes.                  

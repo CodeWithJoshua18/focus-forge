@@ -1,5 +1,5 @@
 import { createProject } from "./projectModel";
-import { addProject, getProjects, renderProjects } from "./projectManager";
+import { addProject, deleteProject, getProjects, renderProjects, updateProject } from "./projectManager";
 import { saveProjects } from "./projectStorage";
 
 // handle addition of projects
@@ -22,4 +22,36 @@ export function handleAddProject(projectData){
 
     // render projects
     renderProjects(projects);
+};
+
+// handle deletion of projects
+export function handleDeleteProject(id){
+    // call delete function
+    const deletedProject = deleteProject(id);
+
+    // project deletion failed
+    if(!deletedProject) return false;
+
+    // persist new state after deletion
+    const projects = getProjects();
+    saveProjects(projects);
+
+    // handle successfull deletion
+    return true;
+};
+
+// handle updating a project
+export function handleUpdateProject(id, updates){
+    // call the update function
+    const updatedProject = updateProject(id, updates);
+
+    // project not found
+    if(!updatedProject) return false;
+
+    // save project
+    const projects = getProjects();
+    saveProjects(projects);
+
+    // handle successful update
+    return true;
 };

@@ -41,6 +41,7 @@
    9. Delay side effects until the last possible moment.  
    10. Hide implementation, expose capabilities.
    11. Separate computation from side effects.  
+   12. State transitions are owned by the manager responsible for that domain's lifecycle.
 
  ## Dependancy flow architecture
         Presentation

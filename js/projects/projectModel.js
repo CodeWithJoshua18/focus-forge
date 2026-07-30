@@ -16,7 +16,7 @@ export function createProject({
         name,
         description,
         deadline,
-        status: "active",
+        status: "draft",
         archived: false,
         createdAt: now,
         updatedAt:  now,

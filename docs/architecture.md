@@ -6,13 +6,17 @@
 2. A project must have a unique ID.
 3. Only tasks that are not required for historical records may be permernently.
 4. A project is considered complete only when all its tasks are completed.
-5. A project starts as active.
+5. A project starts in a draft state.
 6. A project records completedAt only when all of its tasks are completed.
 7. Project progress is calculated,never stored.
 8. Completed projects should be archived by default rather than permanently deleted.
 9. Permanent deletion should be a deliberate user action and only be available for archived projects.
 10. Completed tasks become read-only to preserve historical accuracy and ensure accountability metrics remain trustworthy.
 11. A newly created project remains in a draft state until its first task is added.
+12. A project becomes active when its first task is added.
+
+## Future consideration
+   - Inactive draft projects may trigger a reminder asking the user to activate, archive, or delete.
 
 ## Project-Task Relationship
    - Every task belongs to exactly one project through projectId.
@@ -84,4 +88,10 @@
      {
        success: false,
        code
-     }             
+     }  
+
+ ## Cross-Domain rule
+    - A manager may ask another manager for information, but it remains responsible for enforcing the business rules of its own domain.
+    - Example:
+      - taskManager answers: "Does this project have incomplete tasks?"
+      - projectManager decides: "Can this project be deleted?"                

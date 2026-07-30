@@ -7,7 +7,7 @@
 3. Only tasks that are not required for historical records may be permernently.
 4. A project is considered complete only when all its tasks are completed.
 5. A project starts as active.
-6. A completed project records completedAt.
+6. A project records completedAt only when all of its tasks are completed.
 7. Project progress is calculated,never stored.
 8. Completed projects should be archived by default rather than permanently deleted.
 9. Permanent deletion should be a deliberate user action and only be available for archived projects.
@@ -68,4 +68,19 @@
 
  ## Persistence Principle
     - Storage is only invoked after the application's state has successfully changed.
-    - Failed operations do not trigger persistence.            
+    - Failed operations do not trigger persistence.    
+
+ ## Controller Contract Principle
+    - All controllers return the same result structure.
+       Success:
+      {
+        success: true,
+        data
+      }
+
+      Failure:
+
+     {
+       success: false,
+       code
+     }             

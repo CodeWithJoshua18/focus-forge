@@ -16,8 +16,7 @@ Status       : ${task.status}
 export function renderTasks(tasks){
     // check if the collection is empty
     if(tasks.length === 0){
-        console.log("No tasks available");
-        return;
+        return "No tasks available";
     }
 
     // reuse renderTask to format each task

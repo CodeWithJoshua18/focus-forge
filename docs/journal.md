@@ -408,4 +408,7 @@ Monday 29 June 2026
  Monday 3rd August 2026
 
  ## What did I learn today?
-    - I uncovered that not all duplication is bad duplication                 
+    - I uncovered that not all duplication is bad duplication.
+
+ ## What files changed?
+   - Modified the projectController to handle archiving of projects.                     

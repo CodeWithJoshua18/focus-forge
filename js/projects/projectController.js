@@ -1,5 +1,5 @@
 import { createProject } from "./projectModel";
-import { addProject, deleteProject, getProjects, renderProjects, updateProject } from "./projectManager";
+import { addProject, deleteProject, getProjects, renderProjects, updateProject, archiveProject } from "./projectManager";
 import { saveProjects } from "./projectStorage";
 
 // handle addition of projects
@@ -53,5 +53,19 @@ export function handleUpdateProject(id, updates){
     saveProjects(projects);
 
     // handle successful update
+    return true;
+};
+
+// handle project archiving
+export function handleArchiveProject(projectId){
+    const archivedproject = archiveProject(projectId);
+
+    // project archiving failed
+    if(!archivedproject) return false;
+
+    // persist changes
+    const projects = getProjects();
+    saveProjects(projects);
+
     return true;
 };

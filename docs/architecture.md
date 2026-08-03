@@ -42,6 +42,8 @@
    10. Hide implementation, expose capabilities.
    11. Separate computation from side effects.  
    12. State transitions are owned by the manager responsible for that domain's lifecycle.
+   13. Helpers exist to remove duplication while preserving responsibilities.
+   14. Operations should communicate why they failed, not merely that they failed.
 
  ## Dependancy flow architecture
         Presentation

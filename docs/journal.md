@@ -399,4 +399,13 @@ Monday 29 June 2026
 
  ## What did I learn today?
     - Business failures -> occurs when a user operation does not satisfy the rules required by the application.i.e. trying to delete a project with incomplete tasks.
-    - Technical failures -> occurs when the underlying infrastructure needed to execute an operation breaks or becomes unavailable.i.e. JSON file is corrupted.               
+    - Technical failures -> occurs when the underlying infrastructure needed to execute an operation breaks or becomes unavailable.i.e. JSON file is corrupted.  
+
+ ## What files chnaged?
+   - modified projectController to handle updating and deletion of projects.    
+
+ ## Date
+ Monday 3rd August 2026
+
+ ## What did I learn today?
+    - I uncovered that not all duplication is bad duplication                 

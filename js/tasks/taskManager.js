@@ -124,3 +124,12 @@ export function renderTasks(taskId){
     const tasks = getTasks();
     return tasks;
 };
+
+// keep only tasks without a project
+export function getUnassignedTasks(){
+    const tasks = getTasks();
+
+    // get tasks equal to null
+    const unassignedTasks = tasks.filter(task => task.projectId === null);
+    return unassignedTasks;
+}

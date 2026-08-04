@@ -418,3 +418,4 @@ Monday 29 June 2026
 
  ## What did I learn today?
    - Discovered that there are two kinds of state; business state which is owned by managers, and navigation state,whiich is owned by views.                        
+   - Discovered a principle; queries describe reality, commands change reality.

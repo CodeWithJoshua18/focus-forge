@@ -1,17 +1,23 @@
 // function to handle creation of tasks
-export function createTask(taskId, title, description, priority, projectId) {
+export function createTask(
+    taskId,
+    title,
+    description,
+    priority,
+    projectId = null
+) {
     const now = new Date().toISOString();
-    const task = ({
+
+    return {
         taskId,
         title,
         description,
         priority,
         projectId,
-        status: 'pending',
+        status: "pending",
         createdAt: now,
-        updatedAt: now  
-    });
-    return task;
+        updatedAt: now
+    };
 }
 
 

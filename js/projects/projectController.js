@@ -1,6 +1,8 @@
 import { createProject } from "./projectModel";
-import { addProject, deleteProject, getProjects, renderProjects, updateProject, archiveProject } from "./projectManager";
+import { addProject, deleteProject, getProjects, renderProjects, updateProject, archiveProject, listProjects } from "./projectManager";
 import { saveProjects } from "./projectStorage";
+
+// write operations
 
 // handle addition of projects
 export function handleAddProject(projectData){
@@ -69,3 +71,10 @@ export function handleArchiveProject(projectId){
 
     return true;
 };
+
+// read operations
+
+// handle listing of projects
+export function handleListProjects(){
+    return listProjects();
+}

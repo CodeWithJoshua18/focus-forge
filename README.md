@@ -14,6 +14,7 @@ Instead of traditional screen-time monitoring focused on limiting usage, this pr
 - Reading documentation
 - Working on projects
 
+Focus forge aims to reward sustained growth, not raw activity.
 ## Planned Features
 - Goal tracking
 - Streak systems

@@ -411,4 +411,10 @@ Monday 29 June 2026
     - I uncovered that not all duplication is bad duplication.
 
  ## What files changed?
-   - Modified the projectController to handle archiving of projects.                     
+   - Modified the projectController to handle archiving of projects.
+
+ ## Date
+ Tuesday 4th August 2026
+
+ ## What did I learn today?
+   - Discovered that there are two kinds of state; business state which is owned by managers, and navigation state,whiich is owned by views.                        

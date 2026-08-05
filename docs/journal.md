@@ -419,3 +419,9 @@ Monday 29 June 2026
  ## What did I learn today?
    - Discovered that there are two kinds of state; business state which is owned by managers, and navigation state,whiich is owned by views.                        
    - Discovered a principle; queries describe reality, commands change reality.
+
+ ## What files changed?
+   - Modified taskManger file to implement getUnassignedTasks, these are those that do not belong to a project.   
+
+ ## Date
+ Wednesday 5th August 2026   

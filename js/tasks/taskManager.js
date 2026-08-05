@@ -129,7 +129,7 @@ export function renderTasks(taskId){
 export function getUnassignedTasks(){
     const tasks = getTasks();
 
-    // get tasks equal to null
+    // get tasks whose projectId is null
     const unassignedTasks = tasks.filter(task => task.projectId === null);
     return unassignedTasks;
 }

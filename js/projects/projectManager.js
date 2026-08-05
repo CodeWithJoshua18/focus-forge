@@ -140,4 +140,15 @@ export function getProjects(){
 export function renderProjects(projectId){
     const projects = getProjects();
     return projects;
-}
+};
+
+// get projects by Id
+export function getProjectById(projectId){
+    const projects = getProjects();
+
+    // get project that matches selected projectId
+        const project = projects.find(project => project.id === projectId);
+
+        // return project or null if not found
+        return project || null;
+};

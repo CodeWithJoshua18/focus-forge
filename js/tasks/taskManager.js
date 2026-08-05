@@ -132,4 +132,24 @@ export function getUnassignedTasks(){
     // get tasks equal to null
     const unassignedTasks = tasks.filter(task => task.projectId === null);
     return unassignedTasks;
-}
+};
+
+// get tasks by their id's
+export function getTaskById(taskId){
+    const tasks = getTasks();
+
+    const task = tasks.find(task => task.taskId === taskId);
+
+    // return matching task ,otherwise null
+    return task || null;
+};
+
+// get tasks attached to a project
+export function getTaskByProjectId(projectId){
+    const tasks = getTasks();
+
+    const projectTask = tasks.filter(task => task.projectId  === projectId);
+
+    // return matching tasks
+    return projectTask;
+};

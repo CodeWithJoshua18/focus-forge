@@ -1,4 +1,4 @@
-import { addTask, getTasks, markAsCompleted, renderTasks, updateTask, updateTask, deleteTask } from "./taskManager.js";
+import { addTask, getTasks, markAsCompleted, renderTasks, updateTask, updateTask, deleteTask, listTasks, getUnassignedTasks, getTaskById, getTaskByProjectId} from "./taskManager.js";
 import { saveTasks } from "./taskStorage.js";
 import { createTask } from "./taskModel.js";
 import { archiveProject } from "../projects/projectManager.js";
@@ -84,4 +84,32 @@ export function handleDeleteTask(taskId){
 
     // handle successful deletion
     return true;
+};
+
+// handle listing of tasks
+export function handleListTasks(){
+    const tasks = listTasks();
+
+    return tasks;
+};
+
+// handle listing of unassigned tasks
+export function handleGetUnassignedTasks(){
+    const unassignedTasksList = getUnassignedTasks();
+    
+    return unassignedTasksList;
+};
+
+// handle fetching of a task by id
+export function handleGetTaskById(taskId){
+    const task = getTaskById(taskId);
+
+    return task;
+};
+
+// handle fetching tasks by project Id
+export function handleGetTaskByProjectId(projectId){
+    const task = getTaskByProjectId(projectId);
+
+    return task;
 };

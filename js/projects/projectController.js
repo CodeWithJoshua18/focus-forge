@@ -1,5 +1,5 @@
 import { createProject } from "./projectModel";
-import { addProject, deleteProject, getProjects, renderProjects, updateProject, archiveProject, listProjects } from "./projectManager";
+import { addProject, deleteProject, getProjects, renderProjects, updateProject, archiveProject, listProjects, getProjectById } from "./projectManager";
 import { saveProjects } from "./projectStorage";
 
 // write operations
@@ -76,5 +76,14 @@ export function handleArchiveProject(projectId){
 
 // handle listing of projects
 export function handleListProjects(){
-    return listProjects();
-}
+    const projectList = listProjects();
+
+    return projectList;
+};
+
+// handling fetching of project by Id
+export function handleGetProjectById(projectId){
+    const project = getProjectById(projectId);
+
+    return project;
+};

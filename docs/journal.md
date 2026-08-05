@@ -425,3 +425,7 @@ Monday 29 June 2026
 
  ## Date
  Wednesday 5th August 2026   
+
+ ## What files changed?
+  - Modified taskMnager and projectManager.
+  - Modified task and project controllers.

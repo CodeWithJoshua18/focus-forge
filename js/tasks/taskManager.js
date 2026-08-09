@@ -20,6 +20,8 @@ export function listTasks() {
 // deleteTask
 export function deleteTask(taskId) {
     const index = taskList.findIndex(currentTask => currentTask.taskId === taskId);
+
+    // task not found
     if (index === -1) return false;
     taskList.splice(index, 1);
     return true;

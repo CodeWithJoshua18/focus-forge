@@ -364,9 +364,7 @@ The architecture is allowed to evolve as understanding improves.
 * [x] Task controller
 * [x] Add tasks
 * [x] Update tasks
-* [x] Delete tasks
-* [x] Search tasks
-* [x] Sort tasks
+* [x] Delete task
 
 ### Application Architecture
 

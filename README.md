@@ -110,8 +110,6 @@ Current task functionality includes:
 * Adding tasks
 * Updating tasks
 * Deleting tasks
-* Searching tasks
-* Sorting tasks
 * Managing task state
 
 ### Task Storage

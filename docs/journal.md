@@ -429,3 +429,9 @@ Monday 29 June 2026
  ## What files changed?
   - Modified taskMnager and projectManager.
   - Modified task and project controllers.
+
+## Date
+Monday 1st September
+
+## What files changed?
+- Modified menu.js file to return the menu options for version 1.

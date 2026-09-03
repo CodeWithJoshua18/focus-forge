@@ -441,5 +441,6 @@ Thursday 3rd September
 
 ## What did I learn today?
   - How to handle prompts and inputs
+  - How to take a users choice and determine which controller should run.
 ## What files changed?
   - prompt.js file was modified to handle the prompt functionality.

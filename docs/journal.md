@@ -435,3 +435,11 @@ Monday 1st September
 
 ## What files changed?
 - Modified menu.js file to return the menu options for version 1.
+
+## Date 
+Thursday 3rd September
+
+## What did I learn today?
+  - How to handle prompts and inputs
+## What files changed?
+  - prompt.js file was modified to handle the prompt functionality.

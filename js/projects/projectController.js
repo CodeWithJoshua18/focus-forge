@@ -1,6 +1,6 @@
-import { createProject } from "./projectModel";
-import { addProject, deleteProject, getProjects, renderProjects, updateProject, archiveProject, listProjects, getProjectById } from "./projectManager";
-import { saveProjects } from "./projectStorage";
+import { createProject } from "./projectModel.js";
+import { addProject, deleteProject, getProjects, renderProjects, updateProject, archiveProject, listProjects, getProjectById } from "./projectManager.js";
+import { saveProjects } from "./projectStorage.js";
 
 // write operations
 
@@ -19,11 +19,11 @@ export function handleAddProject(projectData){
     const projects = getProjects();
     saveProjects(projects);
 
-    // successful addition
-    return true;
-
     // render projects
     renderProjects(projects);
+
+    // successful addition
+    return true;
 };
 
 // handle deletion of projects

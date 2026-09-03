@@ -1,4 +1,4 @@
-import { addTask, getTasks, markAsCompleted, renderTasks, updateTask, updateTask, deleteTask, listTasks, getUnassignedTasks, getTaskById, getTaskByProjectId} from "./taskManager.js";
+import { addTask, getTasks, markAsCompleted, renderTasks, updateTask, deleteTask, listTasks, getUnassignedTasks, getTaskById, getTaskByProjectId} from "./taskManager.js";
 import { saveTasks } from "./taskStorage.js";
 import { createTask } from "./taskModel.js";
 import { archiveProject } from "../projects/projectManager.js";

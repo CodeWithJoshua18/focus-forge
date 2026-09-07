@@ -434,7 +434,7 @@ Monday 29 June 2026
 Monday 1st September
 
 ## What files changed?
-- Modified menu.js file to return the menu options for version 1.
+- Modified menu.js file to return the menu options for the CLI version.
 
 ## Date 
 Thursday 3rd September
@@ -444,3 +444,18 @@ Thursday 3rd September
   - How to take a users choice and determine which controller should run.
 ## What files changed?
   - prompt.js file was modified to handle the prompt functionality.
+
+## Date 
+Monday 7th September
+
+## What did I learn today?
+ - Looked into how to work with node js file system, especially reading and writing of files in Json format since localStorage is a browser only method of persisiting data.
+ - Dove into how to separate the various froms of persistence in relation to specific platforms. I.e. CLI,Web,Mobile,Desktop.
+ - Each platform has its own way of persisting its data.
+ - Hydration -> saved data is loaded from the JSON file into the in-memory arrays before a user starts interacting with the menu.
+
+ ## What files changed?
+ - Router file was modified to map user choice to appropriate controller.
+ - Created projectPrompt file that asks the user to input project details before it is routed to the controller.
+ - Modified App.js file to handle startup of the system by loading and fetching persisted data, if not, a message is displayed to indicate that the list is empty.
+ - Created taskPrompt file that asks the user to key in task details.

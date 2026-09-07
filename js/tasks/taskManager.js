@@ -12,7 +12,7 @@ export function listTasks() {
         return "No tasks..."; 
     } else {
         return taskList.map((currentTask, index) => {
-            return `${index + 1}. [${currentTask.status}] ${currentTask.title} (ID: ${currentTask.taskId}) Priority: ${currentTask.priority}`;
+            return `${index + 1}. [${currentTask.status}] ${currentTask.title} Description: ${currentTask.description} (ID: ${currentTask.taskId}) Priority: ${currentTask.priority}`;
         }).join("\n");
     }
 }

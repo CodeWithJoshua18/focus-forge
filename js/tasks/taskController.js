@@ -1,12 +1,19 @@
 import { addTask, getTasks, markAsCompleted, renderTasks, updateTask, deleteTask, listTasks, getUnassignedTasks, getTaskById, getTaskByProjectId} from "./taskManager.js";
-import { saveTasks } from "./taskStorage.js";
+import { saveTasks } from "./taskFileStorage.js";
 import { createTask } from "./taskModel.js";
 import { archiveProject } from "../projects/projectManager.js";
 
 // handle addition of tasks
-export function handleAddTask(taskData){
+export function handleAddTask(taskData) {
+
     // create a task
-    const task = createTask(taskData);
+    const task = createTask(
+        taskData.taskId,
+        taskData.title,
+        taskData.description,
+        taskData.priority,
+        taskData.projectId
+    );
 
     // task creation failed
     if (!task) return false;
@@ -14,16 +21,13 @@ export function handleAddTask(taskData){
     // addition of task failed
     if (!addTask(task)) return false;
 
-    //  save task
-    const saveTask = getTasks();
-    saveTasks(saveTask);
-    
-    // return success 
-    return true;
+    // save current task collection
+    const tasks = getTasks();
+    saveTasks(tasks);
 
-    // display tasks
-    renderTasks(tasks);
-};
+    // successful creation
+    return true;
+}
 
 // handle completion of tasks
 export function handleCompleteTask(taskId){

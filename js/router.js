@@ -10,7 +10,7 @@ export async function route(choice) {
             handleAddProject(await promptProject());
             break;
         case "2":
-            handleListProjects();
+            console.log(handleListProjects());
             break;
         case "3":
             handleAddTask();

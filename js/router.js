@@ -2,6 +2,7 @@ import { handleAddProject, handleListProjects } from "./projects/projectControll
 import { handleAddTask, handleListTasks } from "./tasks/taskController.js";
 import { exit } from "./cli/exit.js";
 import { promptProject } from "./cli/projectPrompt.js";
+import { promptTask } from "./cli/taskPrompt.js";
 
 // function to map user choice to appropriate controller
 export async function route(choice) {
@@ -13,10 +14,10 @@ export async function route(choice) {
             console.log(handleListProjects());
             break;
         case "3":
-            handleAddTask();
+            handleAddTask(await promptTask());
             break;
         case "4":
-            handleListTasks();
+            console.log(handleListTasks());
             break;
         case "5":
             exit();

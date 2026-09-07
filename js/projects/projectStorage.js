@@ -1,4 +1,4 @@
-// save projects
+// save projects in browser
 export function saveProjects(projectList){
     const projectJSON = JSON.stringify(projectList);
     localStorage.setItem("projects", projectJSON);

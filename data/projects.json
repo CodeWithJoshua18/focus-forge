@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "1",
+    "name": "Focus-forge",
+    "description": "async programming",
+    "deadline": "",
+    "status": "draft",
+    "archived": false,
+    "createdAt": "2026-09-07T07:40:28.403Z",
+    "updatedAt": "2026-09-07T07:40:28.403Z",
+    "completedAt": null
+  }
+]

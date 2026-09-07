@@ -1,0 +1,12 @@
+[
+  {
+    "taskId": "1",
+    "title": "Learn OOP",
+    "description": "learn the five pillars of OOP",
+    "priority": "High",
+    "projectId": "1",
+    "status": "pending",
+    "createdAt": "2026-09-07T10:20:06.123Z",
+    "updatedAt": "2026-09-07T10:20:06.123Z"
+  }
+]

@@ -1,30 +1,29 @@
 # Focus Forge
 
-Focus Forge is a productivity-focused system designed to address the challenge of maintaining discipline and accountability in study and programming. Learners and developers often struggle with distractions and unstructured progress, making it difficult to stay consistent and measure achievements.
+Focus Forge is a productivity-focused system designed to help learners and developers build discipline, organize their work, track productive activity, and measure meaningful progress.
 
-Existing tools such as Jira, Trello, and Asana provide powerful project management capabilities, but they are often complex, team-oriented, and not tailored to the needs of individual learners who simply want a lightweight way to organize personal projects and tasks.
+Unlike traditional screen-time monitoring tools that focus on limiting device usage, Focus Forge is designed around rewarding **productive learning and development activity**.
 
-## Project Vision
-
-Instead of traditional screen-time monitoring focused on limiting usage, this project focuses on rewarding productive learning activities such as:
+Examples include:
 
 * Programming
 * Studying
 * Watching tutorials
 * Reading documentation
 * Working on projects
+* Completing meaningful tasks
 
-Focus Forge aims to reward sustained growth, not raw activity.
-
-The vision is to provide a lightweight, learner-friendly platform that helps users build discipline, measure their progress, and stay accountable — making productivity both structured and motivating.
+> **Core principle: Reward sustained growth, not raw activity.**
 
 ---
 
-# Project Domain
+# Project Vision
 
-Focus Forge is being designed around the domain of **personal learning and productivity management**.
+Focus Forge is being built from the inside out.
 
-The system is not intended to be just another generic task manager. Its domain revolves around the relationship between:
+The system begins with the fundamental entities that represent a learner's work and gradually builds toward tracking, analytics, and gamification.
+
+The long-term relationship is:
 
 ```text
 Projects
@@ -36,316 +35,324 @@ Work Sessions
 Productive Activity
    ↓
 Progress
+   ↓
+Feedback
 ```
 
 A **Project** represents a larger piece of work or learning objective.
 
-A **Task** represents an actionable unit of work belonging to that project.
+A **Task** represents an actionable unit of work belonging to a project.
 
 A **Session** represents time spent working on productive activity.
 
-Eventually, Focus Forge will use this information to understand progress and provide meaningful productivity feedback.
+Eventually, Focus Forge should be able to answer questions such as:
 
-The project domain is therefore being developed from the inside out: first establishing the core entities and their responsibilities, then building tracking, analytics, and gamification on top of them.
-
----
-
-# Planned Features
-
-* Goal tracking
-* Streak systems
-* XP and gamification
-* Productivity analytics
-* VS Code activity detection
-* YouTube learning tracking
-* Resource-level tracking
+> What did you accomplish, how consistently are you improving, and what should you work on next?
 
 ---
 
-# Current Version
+# Current Development Milestone
 
-**v0.1 — Core Domain & Application Architecture**
+## V1 — CLI Application
 
-Focus Forge has moved beyond the initial experimentation stage.
+The first complete application interface has now been implemented as a **Node.js command-line application**.
 
-The current development focus is establishing the core domain and learning how to structure an application around clearly separated responsibilities.
+V1 establishes the complete application flow from user interaction to domain logic and persistent storage.
 
-Two core domains have currently been implemented:
+The CLI currently supports:
 
-* **Tasks**
-* **Projects**
+* Creating projects
+* Listing projects
+* Creating tasks
+* Listing tasks
+* Project and task persistence
+* Loading persisted data when the application starts
+* Action-based routing
+* Interactive command-line prompts
 
-Both domains follow the same architectural pattern:
+The CLI is intentionally being treated as a learning milestone rather than the final interface for Focus Forge.
 
-```text
-Model
-  ↓
-Manager
-  ↓
-Storage
-  ↓
-Controller
-```
-
-This architecture provides a foundation that can later be extended to tracking, goals, analytics, and other Focus Forge features.
+The next step is to **refactor the architecture**, identify reusable core logic, separate CLI-specific concerns, and prepare the system for the web application.
 
 ---
 
-# What Has Been Completed
+# Architecture
 
-## Task Domain
+Focus Forge has been built around separation of responsibilities.
 
-The Task domain has been implemented with its core architectural layers.
-
-### Task Model
-
-Responsible for representing the structure and data of a task.
-
-### Task Manager
-
-Responsible for task-related business operations.
-
-Current task functionality includes:
-
-* Adding tasks
-* Updating tasks
-* Deleting tasks
-* Managing task state
-
-### Task Storage
-
-Responsible for managing task data persistence within the current application environment.
-
-### Task Controller
-
-Responsible for coordinating task operations between the application and the task domain.
-
-The Task domain therefore follows:
-
-```text
-Task Controller
-      ↓
-Task Manager
-      ↓
-Task Model
-      ↕
-Task Storage
-```
-
----
-
-## Project Domain
-
-The Project domain has also been implemented using the same architectural approach.
-
-### Project Model
-
-Responsible for representing the structure and data of a project.
-
-### Project Manager
-
-Responsible for project-related business operations.
-
-### Project Storage
-
-Responsible for managing project data persistence.
-
-### Project Controller
-
-Responsible for coordinating project operations between the application and the project domain.
-
-The Project domain follows:
-
-```text
-Project Controller
-        ↓
-Project Manager
-        ↓
-Project Model
-        ↕
-Project Storage
-```
-
-The completion of both domains is an important milestone because Focus Forge now has a foundation for modelling the relationship between larger projects and the tasks that make up those projects.
-
----
-
-# Current Architecture
-
-The architecture is gradually moving toward a layered and modular application.
-
-At the domain level:
-
-```text
-                    Focus Forge
-                        │
-              ┌─────────┴─────────┐
-              │                   │
-           Projects             Tasks
-              │                   │
-       ┌──────┴──────┐     ┌──────┴──────┐
-       │             │     │             │
-     Model        Manager  Model       Manager
-       │             │     │             │
-     Storage     Controller Storage   Controller
-```
-
-The purpose of this structure is to keep responsibilities separated.
-
-For example, the controller should not contain all of the business logic, while the manager should not be responsible for how data is displayed.
-
-This separation is allowing the project to move from simply writing JavaScript that works toward understanding **how software should be organized**.
-
----
-
-# Current Development: CLI
-
-With the core domain layers established, development is now moving toward the application's **CLI interaction layer**.
-
-The CLI is being designed around **actions**.
-
-The menu's responsibility is to present actions that the user can perform rather than containing the implementation of those actions.
-
-Conceptually:
+The current application flow is:
 
 ```text
 User
  ↓
-Main Menu
+CLI
  ↓
-Action
+Prompt
+ ↓
+Router
  ↓
 Controller
  ↓
 Manager
  ↓
-Model / Storage
+Model
+ ↓
+Persistence
 ```
 
-This means the CLI becomes an entry point into the existing domain rather than becoming another place where business logic is duplicated.
+On application startup, persisted state is restored before the menu begins:
 
-The current CLI work is therefore focused on understanding:
+```text
+projects.json ──→ loadProjects() ──→ setProjects() ──→ projectList
+                                                            │
+tasks.json ─────→ loadTasks() ──────→ setTasks() ────────→ taskList
+                                                            │
+                                                            ↓
+                                                        Main Menu
+```
 
-* Application flow
-* Action-based design
-* Controllers
-* Rendering
-* User interaction
-* How the UI/CLI communicates with domain logic
+This process is referred to as **hydrating the application's in-memory state**.
+
+The JSON files provide persistence, while the managers maintain the application's current working state.
 
 ---
 
-# Current Learning Focus
+# Core Domains
 
-Focus Forge is being used as a practical environment for learning software engineering.
+## Projects
 
-The current learning areas include:
+The Project domain currently contains:
 
-* JavaScript objects
-* Arrays
-* Modules
-* Functions
-* State management
-* Controllers
-* Managers
-* Models
-* Storage
-* Rendering
-* Separation of concerns
-* SOLID principles
-* Domain modelling
-* Application architecture
-* Designing systems that can evolve
+```text
+Project
+ ├── Model
+ ├── Manager
+ ├── Controller
+ └── File Storage
+```
 
-The goal is not simply to make each feature work.
+### Project Model
 
-The goal is to understand **why each responsibility belongs where it does**.
+Responsible for defining and creating project objects.
+
+### Project Manager
+
+Responsible for project state and business operations.
+
+Current functionality includes:
+
+* Adding projects
+* Listing projects
+* Finding projects by ID
+* Updating projects
+* Deleting projects
+* Archiving projects
+* Maintaining the project collection
+
+### Project Controller
+
+Coordinates project operations between the application interface and the project domain.
+
+### Project File Storage
+
+Handles persistence of projects using:
+
+```text
+data/projects.json
+```
+
+---
+
+# Tasks
+
+The Task domain follows the same architectural pattern:
+
+```text
+Task
+ ├── Model
+ ├── Manager
+ ├── Controller
+ └── File Storage
+```
+
+### Task Model
+
+Responsible for defining the structure and creation of task objects.
+
+### Task Manager
+
+Responsible for task state and business operations.
+
+Current functionality includes:
+
+* Adding tasks
+* Listing tasks
+* Finding tasks by ID
+* Finding tasks by project ID
+* Finding unassigned tasks
+* Updating tasks
+* Deleting tasks
+* Marking tasks as completed
+* Checking for incomplete tasks belonging to projects
+
+### Task Controller
+
+Coordinates task operations between the application interface and task domain.
+
+### Task File Storage
+
+Handles persistence of tasks using:
+
+```text
+data/tasks.json
+```
+
+---
+
+# CLI
+
+The CLI is designed around **actions**.
+
+The menu does not contain the implementation of business operations. Instead, it maps user choices to the appropriate application operation.
+
+Current flow:
+
+```text
+1 → Create Project
+2 → List Projects
+3 → Create Task
+4 → List Tasks
+5 → Exit
+```
+
+The router connects these actions to the appropriate controllers.
+
+For example:
+
+```text
+Create Project
+      ↓
+promptProject()
+      ↓
+handleAddProject()
+      ↓
+createProject()
+      ↓
+addProject()
+      ↓
+saveProjects()
+```
+
+And:
+
+```text
+Create Task
+      ↓
+promptTask()
+      ↓
+handleAddTask()
+      ↓
+createTask()
+      ↓
+addTask()
+      ↓
+saveTasks()
+```
+
+The CLI therefore acts as an **entry point into the existing domain**, rather than becoming a second place where business logic is implemented.
+
+---
+
+# Persistence
+
+V1 uses JSON files for persistence.
+
+```text
+data/
+├── projects.json
+└── tasks.json
+```
+
+The application uses Node's filesystem APIs to save and load data.
+
+### Saving
+
+```text
+In-memory collection
+        ↓
+JSON.stringify()
+        ↓
+JSON file
+```
+
+### Loading
+
+```text
+JSON file
+    ↓
+fs.readFileSync()
+    ↓
+JSON.parse()
+    ↓
+JavaScript array
+    ↓
+setProjects() / setTasks()
+```
+
+Persistence is performed by **write operations**.
+
+Read-only operations do not modify state and therefore do not need to save anything.
+
+This distinction is intentional and will become increasingly important as Focus Forge moves toward more sophisticated persistence systems.
 
 ---
 
 # Current Project Structure
 
+The current V1 structure is approximately:
+
 ```text
 focus-forge/
 │
 ├── README.md
-├── index.html
-├── .gitignore
+├── data/
+│   ├── projects.json
+│   └── tasks.json
 │
-├── assets/
-│
-├── css/
-│   ├── styles.css
-│   ├── layout.css
-│   └── components.css
-│
-├── js/
-│   │
-│   ├── app.js
-│   │
-│   ├── cli/
-│   │   └── mainMenu.js
-│   │
-│   ├── tasks/
-│   │   ├── taskModel.js
-│   │   ├── taskManager.js
-│   │   ├── taskStorage.js
-│   │   └── taskController.js
-│   │
-│   ├── projects/
-│   │   ├── projectModel.js
-│   │   ├── projectManager.js
-│   │   ├── projectStorage.js
-│   │   └── projectController.js
-│   │
-│   ├── tracking/
-│   │   ├── timer.js
-│   │   ├── tracker.js
-│   │   └── session.js
-│   │
-│   ├── ui/
-│   │   ├── dashboard.js
-│   │   ├── taskRenderer.js
-│   │   ├── modal.js
-│   │   └── notifications.js
-│   │
-│   └── utils/
-│       ├── helpers.js
-│       ├── validators.js
-│       └── time.js
-│
-└── docs/
+└── js/
+    │
+    ├── app.js
+    ├── router.js
+    │
+    ├── cli/
+    │   ├── mainMenu.js
+    │   ├── prompts.js
+    │   ├── projectPrompt.js
+    │   ├── taskPrompt.js
+    │   └── exit.js
+    │
+    ├── projects/
+    │   ├── projectModel.js
+    │   ├── projectManager.js
+    │   ├── projectController.js
+    │   ├── projectStorage.js
+    │   └── projectFileStorage.js
+    │
+    └── tasks/
+        ├── taskModel.js
+        ├── taskManager.js
+        ├── taskController.js
+        ├── taskStorage.js
+        └── taskFileStorage.js
 ```
 
-The `tasks/` and `projects/` directories currently represent implemented domain modules.
+Some files such as the original browser-oriented storage modules may remain because the project is evolving from its earlier browser implementation toward the Node.js CLI.
 
-The `tracking/`, `ui/`, and other directories contain planned or partially developed functionality and should not be treated as completed simply because the directories exist.
-
----
-
-# Development Philosophy
-
-This project is intentionally being built incrementally.
-
-The goal is not just to finish an application, but to:
-
-* Learn software engineering principles
-* Practice clean architecture
-* Improve problem solving
-* Understand domain modelling
-* Learn how responsibilities are separated
-* Build reusable components
-* Understand how modules communicate
-* Develop the ability to read and understand other people's code
-* Build systems that can evolve over time
-
-Each phase introduces new concepts gradually.
-
-The architecture is allowed to evolve as understanding improves.
+The upcoming refactoring phase will determine which modules should remain, move, be renamed, or be replaced.
 
 ---
 
-# Planned Development Phases
+# Development Phases
 
 ## Phase 1 — Core Domain
 
@@ -353,36 +360,142 @@ The architecture is allowed to evolve as understanding improves.
 
 * [x] Project model
 * [x] Project manager
-* [x] Project storage
 * [x] Project controller
+* [x] Project operations
+* [x] Project persistence
 
 ### Tasks
 
 * [x] Task model
 * [x] Task manager
-* [x] Task storage
 * [x] Task controller
-* [x] Add tasks
-* [x] Update tasks
-* [x] Delete task
+* [x] Task operations
+* [x] Task persistence
 
-### Application Architecture
+### Architecture
 
 * [x] Modular project structure
-* [x] Separate domain responsibilities
-* [x] Establish Model layer
-* [x] Establish Manager layer
-* [x] Establish Storage layer
-* [x] Establish Controller layer
-* [x] Begin CLI architecture
-* [x] Define action-based menu approach
-* [ ] Complete CLI interaction flow
+* [x] Separation of domain responsibilities
+* [x] Model layer
+* [x] Manager layer
+* [x] Controller layer
+* [x] Storage layer
+* [x] Read-only operations
+* [x] Write operations
+* [x] State management
+* [x] Application startup hydration
 
 ---
 
+# Phase 1B — CLI / V1
+
+* [x] Main menu
+* [x] User prompts
+* [x] Project prompt
+* [x] Task prompt
+* [x] Action-based routing
+* [x] Project creation through CLI
+* [x] Project listing through CLI
+* [x] Task creation through CLI
+* [x] Task listing through CLI
+* [x] Project persistence
+* [x] Task persistence
+* [x] Load persisted projects on startup
+* [x] Load persisted tasks on startup
+* [x] Complete CLI interaction flow
+
+**Status: Complete**
+
+---
+
+# Immediate Next Phase — Refactoring
+
+Before beginning the web version, the V1 implementation will be refactored.
+
+The goal is **not** to rewrite working code simply for the sake of rewriting it.
+
+The goal is to understand what was learned during V1 and use that knowledge to improve the architecture.
+
+The refactoring phase will focus on:
+
+* [ ] Reviewing module responsibilities
+* [ ] Separating CLI-specific code from reusable application logic
+* [ ] Reviewing controller responsibilities
+* [ ] Reviewing manager responsibilities
+* [ ] Reviewing storage responsibilities
+* [ ] Improving renderers
+* [ ] Reviewing the router
+* [ ] Removing unnecessary duplication
+* [ ] Improving naming and module organization
+* [ ] Identifying reusable core application logic
+* [ ] Preparing the architecture for multiple interfaces
+
+The desired result is:
+
+```text
+                 Focus Forge Core
+                       │
+              ┌────────┴────────┐
+              ↓                 ↓
+             CLI              Web
+              │                 │
+              └────────┬────────┘
+                       ↓
+                 Shared Domain
+                       │
+              ┌────────┴────────┐
+              ↓                 ↓
+          Projects            Tasks
+              │                 │
+              └────────┬────────┘
+                       ↓
+                   Storage
+```
+
+The CLI should eventually become **one interface over the application**, rather than the application itself.
+
+---
+
+# Next Major Phase — Web Application
+
+Once the refactoring is complete, development will move toward the web version.
+
+The goal will be to reuse the domain logic developed during V1 wherever appropriate rather than rebuilding the system from scratch.
+
+The web version will introduce:
+
+* Web-based project management
+* Web-based task management
+* Dynamic rendering
+* User interface components
+* Browser interaction
+* Eventually, a more appropriate web persistence architecture
+
+The architecture should evolve toward:
+
+```text
+                 Web Interface
+                       ↓
+                  Application
+                       ↓
+             ┌─────────┴─────────┐
+             ↓                   ↓
+          Projects             Tasks
+             ↓                   ↓
+          Business Logic / Domain
+                       ↓
+                   Storage
+```
+
+The exact technologies and structure will be determined during the refactoring and web phases based on the problems that need to be solved.
+
+---
+
+# Future Development
+
 ## Phase 2 — Manual Tracking
 
-The next major domain to build is productivity/session tracking.
+The next major domain after the web foundation is productivity/session tracking.
 
 Planned functionality:
 
@@ -390,16 +503,25 @@ Planned functionality:
 * Stop a session
 * Calculate session duration
 * Display tracked sessions
-* Store session data temporarily in memory
-* Associate sessions with projects/tasks
+* Associate sessions with projects
+* Associate sessions with tasks
+* Persist session information
 
-This will allow Focus Forge to begin connecting **what the user planned to do** with **what the user actually spent time doing**.
+This introduces the relationship between:
+
+```text
+What I planned to do
+        ↓
+What I actually worked on
+        ↓
+How long I worked
+```
 
 ---
 
 ## Phase 3 — Activity Detection
 
-Once the manual tracking foundation is stable:
+Once manual tracking is stable:
 
 * VS Code activity tracking
 * Browser activity monitoring
@@ -411,7 +533,7 @@ Once the manual tracking foundation is stable:
 
 ## Phase 4 — Analytics
 
-Once Focus Forge has meaningful activity data:
+Once meaningful activity data exists:
 
 * Productivity charts
 * Learning trends
@@ -425,7 +547,7 @@ Once Focus Forge has meaningful activity data:
 
 ## Phase 5 — Gamification
 
-The productivity data can then become the foundation for:
+Productivity data can then become the foundation for:
 
 * XP
 * Levels
@@ -437,7 +559,7 @@ The productivity data can then become the foundation for:
 
 The core principle remains:
 
-> Reward sustained growth, not raw activity.
+> **Reward sustained growth, not raw activity.**
 
 ---
 
@@ -454,76 +576,169 @@ Potential future functionality:
 
 ---
 
-# Planned Technology Evolution
+# Technology Evolution
 
-### Current
+## Current
+
+* JavaScript
+* Node.js
+* Node.js filesystem APIs
+* JSON persistence
+* Command-line interface
+
+## Planned
 
 * HTML
 * CSS
 * JavaScript
-
-### Planned
-
-* Node.js
+* React
 * Express
 * SQLite / PostgreSQL
 * Electron
-* React
+* Additional technologies as required
 
-These technologies will be introduced when the problems they solve become relevant rather than being added prematurely.
+Technologies will be introduced when they solve an actual problem rather than being added prematurely.
 
 ---
 
-# Key Architectural Goals
+# Key Concepts Learned
 
-Focus Forge aims to follow:
+Focus Forge is being used as a practical environment for learning software engineering.
 
+Concepts encountered so far include:
+
+* JavaScript objects
+* Arrays
+* Functions
+* ES Modules
+* Module resolution
+* State management
+* Single source of truth
 * Separation of concerns
-* Single Responsibility Principle
-* SOLID principles
-* Modular design
-* Reusability
-* Clear application flow
-* Maintainability
-* Extensibility
-* Domain-driven thinking
+* Domain modelling
+* CRUD operations
+* Array methods
+* Predicates
+* Guard clauses
+* Validation
+* Whitelisting
+* Partial updates
+* Immutable state
+* Controllers
+* Managers
+* Models
+* Persistence
+* Serialization
+* JSON
+* Node.js filesystem APIs
+* File paths
+* Asynchronous JavaScript
+* `async` / `await`
+* CLI interaction
+* Application routing
+* State hydration
+* Layered architecture
 
-The architecture should allow individual parts of the system to change without requiring the entire application to be rewritten.
+The goal is not simply to memorize these concepts.
+
+The goal is to understand **why they exist, what problems they solve, and where they belong in a real system**.
 
 ---
 
-# What Comes Next
+# Development Philosophy
 
-The immediate priority is to continue building the application around the domain that has already been established.
+Focus Forge is intentionally being built incrementally.
 
-The current progression is:
+The goal is not just to finish an application, but to:
+
+* Learn software engineering principles
+* Practice clean architecture
+* Improve problem solving
+* Understand domain modelling
+* Learn how responsibilities are separated
+* Build reusable components
+* Understand how modules communicate
+* Develop the ability to read and understand other people's code
+* Build systems that can evolve over time
+
+The development process follows:
 
 ```text
-                    FOCUS FORGE
-                         │
-             ┌───────────┴───────────┐
-             │                       │
-          PROJECTS                 TASKS
-             │                       │
-      Model / Manager         Model / Manager
-      Storage / Controller   Storage / Controller
-             │                       │
-             └───────────┬───────────┘
-                         │
-                    CLI / Actions
-                         │
-                    APPLICATION
-                         │
-                  Tracking System
-                         │
-                    Analytics
-                         │
-                   Gamification
+Understand the problem
+        ↓
+Identify the business rules
+        ↓
+Consider edge cases
+        ↓
+Design the solution
+        ↓
+Implement
+        ↓
+Test
+        ↓
+Refactor
+        ↓
+Review
+        ↓
+Continue building
 ```
 
-The immediate development goal is to complete the CLI interaction layer on top of the existing domain architecture.
+The architecture is allowed to evolve as understanding improves.
 
-After that, the focus can move toward connecting the **Project → Task → Session** relationship.
+The objective is not to design the "perfect" architecture from the beginning.
+
+It is to **continuously improve the architecture as software engineering knowledge grows**.
+
+---
+
+# Current Status
+
+**Status:** Active Development
+
+**Current Milestone:** V1 — CLI Application
+
+**V1 Status:** Complete
+
+### Completed
+
+* Projects domain
+* Tasks domain
+* Models
+* Managers
+* Controllers
+* Read operations
+* Write operations
+* JSON persistence
+* Application startup hydration
+* CLI
+* Interactive prompts
+* Action-based routing
+
+### Current Focus
+
+**Refactoring V1**
+
+The next goal is to cleanly separate reusable application/domain logic from CLI-specific concerns and establish a stronger foundation for the web application.
+
+### Next
+
+```text
+V1 CLI
+   ↓
+Refactoring
+   ↓
+Web Application
+   ↓
+Manual Tracking
+   ↓
+Activity Detection
+   ↓
+Analytics
+   ↓
+Gamification
+   ↓
+Ecosystem Expansion
+```
 
 ---
 
@@ -543,46 +758,14 @@ Focus Forge should eventually be able to answer:
 
 ---
 
-# Project Status
-
-**Status:** Active Development
-
-**Current Version:** v0.1
-
-**Current Stage:** Core domain architecture and CLI development
-
-**Completed Domains:**
-
-* Projects
-* Tasks
-
-**Completed Architectural Layers:**
-
-* Models
-* Managers
-* Storage
-* Controllers
-
-**Current Focus:**
-
-* CLI
-* Action-based application flow
-* Rendering
-* Connecting the application interface to the existing domain architecture
-
-**Next Major Milestone:**
-
-Complete the CLI flow and begin connecting Projects, Tasks, and productivity sessions into a coherent application workflow.
-
----
-
 # Notes
 
-This project is under active development and will continue evolving as new JavaScript and software engineering concepts are learned.
+Focus Forge is under active development.
 
-The architecture, folder structure, and technology stack are expected to change as the project grows.
+The architecture, folder structure, technologies, and implementation strategies are expected to change as the project grows.
 
 These changes are part of the learning process.
 
-The objective is not to design the "perfect" architecture from the beginning, but to continuously improve the architecture as the understanding of software engineering grows.
+The objective is not to build everything at once.
 
+The objective is to **build, understand, test, refactor, and evolve**.

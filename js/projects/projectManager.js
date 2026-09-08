@@ -1,7 +1,7 @@
 import { hasIncompleteTasks } from "../tasks/taskManager.js";
 
 
-// stroing projects in an array
+// storing projects in an array
  const projectList = [];
 
 // add projects

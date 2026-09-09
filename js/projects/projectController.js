@@ -1,5 +1,5 @@
 import { createProject } from "./projectModel.js";
-import { addProject, deleteProject, getProjects, renderProjects, updateProject, archiveProject, listProjects, getProjectById } from "./projectManager.js";
+import { addProject, deleteProject, getProjects, updateProject, archiveProject, getProjectById } from "./projectManager.js";
 import { saveProjects } from "./projectFileStorage.js";
 
 // write operations
@@ -18,9 +18,6 @@ export function handleAddProject(projectData){
     // save current state of project collection
     const projects = getProjects();
     saveProjects(projects);
-
-    // render projects
-    renderProjects(projects);
 
     // successful addition
     return true;
@@ -76,9 +73,7 @@ export function handleArchiveProject(projectId){
 
 // handle listing of projects
 export function handleListProjects(){
-    const projectList = listProjects();
-
-    return projectList;
+   return getProjects();
 };
 
 // handling fetching of project by Id

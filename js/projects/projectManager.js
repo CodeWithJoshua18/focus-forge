@@ -10,20 +10,10 @@ export function addProject(project){
     return project;
 }
 
-// list projects
-export function listProjects() {
-    if (projectList.length === 0) {
-        return "No projects...";
-    } else {
-        return projectList.map((currentProject, index) => {
-            return `${index + 1}. ${currentProject.name} (ID: ${currentProject.id}) 
-                Description: ${currentProject.description || "No description"} 
-                Deadline: ${currentProject.deadline || "No deadline"} 
-                Archived: ${currentProject.archived ? "Yes" : "No"} 
-                Created: ${currentProject.createdAt}`;
-             }).join("\n\n"); 
-    }
-}
+// get/list projects
+export function getProjects(){
+    return projectList;
+};
 
 
 // update project
@@ -131,16 +121,6 @@ export function setProjects(projects){
     })
 };
 
-// get projects
-export function getProjects(){
-    return projectList;
-};
-
-// render projects
-export function renderProjects(projectId){
-    const projects = getProjects();
-    return projects;
-};
 
 // get projects by Id
 export function getProjectById(projectId){

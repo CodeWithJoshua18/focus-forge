@@ -14,6 +14,7 @@
 10. Completed tasks become read-only to preserve historical accuracy and ensure accountability metrics remain trustworthy.
 11. A newly created project remains in a draft state until its first task is added.
 12. A project becomes active when its first task is added.
+13. Queries; getTaskById(), should retrieve data while commands; addTask(), should change state.
 
 ## Future consideration
    - Inactive draft projects may trigger a reminder asking the user to activate, archive, or delete.
@@ -128,4 +129,36 @@
       - renderProjects() - Currently returns collection: Verdict: Likely remove
       - getProjectById() - Query project state: Verdict: keep    
 
-
+   ## Structure after refactoring
+       
+                 ┌──────────────┐
+                 │    MODEL     │
+                 │              │
+                 │ Create data  │
+                 └──────┬───────┘
+                        │
+                        ▼
+                 ┌──────────────┐
+                 │   MANAGER    │
+                 │              │
+                 │ Own state    │
+                 │ Business     │
+                 │ rules        │
+                 │ Queries      │
+                 └──────┬───────┘
+                        │
+                   raw data
+                        │
+                        ▼
+                 ┌──────────────┐
+                 │  CONTROLLER  │
+                 │              │
+                 │ Coordinates  │
+                 │ operations   │
+                 └───┬──────┬───┘
+                     │      │
+              persist│      │present
+                     ▼      ▼
+               ┌────────┐ ┌────────┐
+               │STORAGE │ │  VIEW  │
+               └────────┘ └────────┘

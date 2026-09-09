@@ -102,4 +102,30 @@
 
  ## Future refactor
     - Controllers currently trigger persistence.
-    - Consider movinng persistence responsibility into managers, since managers own state changes.                  
+    - Consider movinng persistence responsibility into managers, since managers own state changes.     
+
+ ## Architectural Record
+   ## Module: projectModel.js
+      - Responsibility: Construct a valid project entity with initial and default state.(it receives project data, performs validation, establishes initial project state)
+      - Owns state?: No
+      - Reads collection?: No
+      - Writes collection?: No
+      - Persistence?: No
+      - CLI-specific?: No
+      - Business/domain knowledge?: Yes
+      - Depends on?: Javascript Date 
+      - Used By?: Project controller/ application code
+      - Potential issue?: Nothing major yet
+
+   ## Module: projectManager.js
+      - addProject() - add project to state: Verdict: keep
+      - listProjects() - Retrieve + format projects: Verdict: Revisit
+      - updateProject() - Modify project state: Verdict: keep
+      - deletProject() - Delete project + enorce task rule: Verdict: Dependacy to revisit
+      - setProjects() - Hydrate run0time state: Verdict: keep for now
+      - archiveProject - Archive project + enforce task rule: Verdict: Dependancy to revisit
+      - getProjects() - Expose project collection: Verdict: State encapsulation
+      - renderProjects() - Currently returns collection: Verdict: Likely remove
+      - getProjectById() - Query project state: Verdict: keep    
+
+

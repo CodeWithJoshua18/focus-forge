@@ -8,5 +8,15 @@
     "status": "pending",
     "createdAt": "2026-09-07T10:20:06.123Z",
     "updatedAt": "2026-09-07T10:20:06.123Z"
+  },
+  {
+    "taskId": "2",
+    "title": "Refactor focus-forge",
+    "description": "refactoring taskView.js file",
+    "priority": "High",
+    "projectId": null,
+    "status": "pending",
+    "createdAt": "2026-09-09T06:48:35.259Z",
+    "updatedAt": "2026-09-09T06:48:35.259Z"
   }
 ]

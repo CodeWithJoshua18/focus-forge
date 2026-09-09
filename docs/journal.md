@@ -459,3 +459,10 @@ Monday 7th September
  - Created projectPrompt file that asks the user to input project details before it is routed to the controller.
  - Modified App.js file to handle startup of the system by loading and fetching persisted data, if not, a message is displayed to indicate that the list is empty.
  - Created taskPrompt file that asks the user to key in task details.
+
+ ## Date
+ Tuesday 8th September
+
+ ## What did I learn today?
+ - Used the command; tree /F to inspect my project structure in a tree format.
+ - Dove into how to go about refactoring by asking 6 questions while inspecting each module as described in the hanbook.md file.

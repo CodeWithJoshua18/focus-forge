@@ -1,4 +1,4 @@
-// render a task
+// render a single task
 function renderTask(task){
     // return formatted string using template literal
    return `
@@ -19,14 +19,9 @@ export function renderTasks(tasks){
         return "No tasks available";
     }
 
-    // reuse renderTask to format each task
+    //  format each task
     const rendered = tasks.map(renderTask);
 
-    // build one complete output string
-    const output = rendered.join("\n");
-
-    // single presentation output
-    console.log(output);
-
-    return output;
+    // combine all rendered tasks
+    return rendered.join("\n");
 }

@@ -20,11 +20,6 @@ export function renderProjects(projects){
     const rendered = projects.map(renderProject);
 
     // build one output string
-    const output = rendered.join("\n");
-
-    // single presentation output
-    console.log(output);
-
-    return output;
+    return rendered.join("\n");
     
 };

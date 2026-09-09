@@ -6,16 +6,11 @@ export function addTask(task) {
     return task; 
 }
 
-// function to list tasks
-export function listTasks() {
-    if (taskList.length === 0) {
-        return "No tasks..."; 
-    } else {
-        return taskList.map((currentTask, index) => {
-            return `${index + 1}. [${currentTask.status}] ${currentTask.title} Description: ${currentTask.description} (ID: ${currentTask.taskId}) Priority: ${currentTask.priority}`;
-        }).join("\n");
-    }
-}
+// function to get/ list tasks
+export function getTasks(){
+    return taskList;
+};
+
 
 // deleteTask
 export function deleteTask(taskId) {
@@ -116,10 +111,7 @@ export function setTasks(tasks){
     })
 };
 
-// function to get tasks
-export function getTasks(){
-    return taskList;
-};
+
 
 // function to render tasks
 export function renderTasks(taskId){

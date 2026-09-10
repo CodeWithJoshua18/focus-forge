@@ -78,7 +78,5 @@ export function handleListProjects(){
 
 // handling fetching of project by Id
 export function handleGetProjectById(projectId){
-    const project = getProjectById(projectId);
-
-    return project;
+    return getProjectById(projectId);
 };

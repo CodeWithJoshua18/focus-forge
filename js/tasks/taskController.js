@@ -1,4 +1,4 @@
-import { addTask, getTasks, markAsCompleted, renderTasks, updateTask, deleteTask, getUnassignedTasks, getTaskById, getTaskByProjectId} from "./taskManager.js";
+import { addTask, getTasks, markAsCompleted, updateTask, deleteTask, getUnassignedTasks, getTaskById, getTaskByProjectId} from "./taskManager.js";
 import { saveTasks } from "./taskFileStorage.js";
 import { createTask } from "./taskModel.js";
 import { archiveProject } from "../projects/projectManager.js";
@@ -22,8 +22,7 @@ export function handleAddTask(taskData) {
     if (!addTask(task)) return false;
 
     // save current task collection
-    const tasks = getTasks();
-    saveTasks(tasks);
+    saveTasks(getTasks());
 
     // successful creation
     return true;
@@ -31,60 +30,59 @@ export function handleAddTask(taskData) {
 
 // handle completion of tasks
 export function handleCompleteTask(taskId){
-    // mark task as completed
-    const completedTask = markAsCompleted(taskId);
+    // get tasks before chnaging state
+    const task = getTaskById(taskId);
 
-    // task not found
-    if (!completedTask) return false;
+    // task does not exist
+    if(!task) return false;
 
-    // save task
-    const tasks = getTasks();
-    saveTasks(tasks);
+    // mark task as complete
+    const success = markAsCompleted(taskId);
 
-    // if task belongs to a project,archive it
-    if (completedTask.projectId){
-        archiveProject(completedTask.projectId);
+    // completion failed
+    if(!success) return false;
+
+    // persist current state
+    saveTasks(getTasks());
+
+    // archive project if applicable
+    if(task.projectId){
+        archiveProject(task.projectId);
     }
 
-    // display tasks
-    renderTasks(tasks);
-
     return true;
+
 };
 
+   javascript
 // handle updating of tasks
-export function handleUpdateTask(taskId, updates){
+export function handleUpdateTask(taskId, updates) {
+
     // call update task function
-    const updatedTask = updateTask(taskId, updates);
+    const success = updateTask(taskId, updates);
 
-    // task not found
-    if(!updatedTask) return false;
+    // update failed
+    if (!success) return false;
 
-    // save tasks
-    const tasks = getTasks();
-    saveTasks(tasks);
+    // persist current state
+    saveTasks(getTasks());
 
-    // render tasks
-    renderTasks(tasks);
-
-    // handle successful update
+    // successful update
     return true;
-};
+}
+
+
 
 // handle deletion of tasks
 export function handleDeleteTask(taskId){
     // call delete task function
-    const deletedTask = deleteTask(taskId);
+    const success = deleteTask(taskId);
 
     // task not found
-    if(!deletedTask) return false;
+    if(!success) return false;
 
     // persist new state after deletion
-    const tasks = getTasks();
-    saveTasks(tasks);
-
-    // render tasks
-    renderTasks(tasks);
+    saveTasks(getTasks());
 
     // handle successful deletion
     return true;
@@ -97,21 +95,15 @@ export function handleListTasks(){
 
 // handle listing of unassigned tasks
 export function handleGetUnassignedTasks(){
-    const unassignedTasksList = getUnassignedTasks();
-    
-    return unassignedTasksList;
+    return getUnassignedTasks();
 };
 
 // handle fetching of a task by id
 export function handleGetTaskById(taskId){
-    const task = getTaskById(taskId);
-
-    return task;
+   return getTaskById(taskId);
 };
 
 // handle fetching tasks by project Id
 export function handleGetTaskByProjectId(projectId){
-    const task = getTaskByProjectId(projectId);
-
-    return task;
+   return getTaskByProjectId(projectId);
 };

@@ -54,7 +54,6 @@ export function handleCompleteTask(taskId){
 
 };
 
-   javascript
 // handle updating of tasks
 export function handleUpdateTask(taskId, updates) {
 

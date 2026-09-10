@@ -7,7 +7,7 @@ import { hasIncompleteTasks } from "../tasks/taskManager.js";
 // add projects
 export function addProject(project){
     projectList.push(project);
-    return project;
+    return true;
 }
 
 // get/list projects
@@ -23,12 +23,10 @@ const editableProjectFields = [
     "deadline",
 ];
 
-
-
 export function updateProject(id, updates){
     // nothing to update
     if(Object.entries(updates).length === 0){
-        return true;
+        return false;
     };
 
     // find project
@@ -63,7 +61,7 @@ export function updateProject(id, updates){
         currentProject.updatedAt = new Date().toISOString();
     }
 
-    return currentProject;
+    return didProjectChange;
 };
 
 // delete project
@@ -99,7 +97,7 @@ export function archiveProject(projectId){
     };
 
     // check if project is already archived
-    if(currentProject.archived) return true;
+    if(currentProject.archived) return false;
     
     // update fields
     currentProject.archived = true;
@@ -107,7 +105,7 @@ export function archiveProject(projectId){
     currentProject.updatedAt = new Date().toISOString();
     currentProject.completedAt = new Date().toISOString();
 
-    return currentProject;
+    return true;
 };
 
 // set projects

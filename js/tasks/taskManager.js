@@ -3,7 +3,7 @@ const taskList = [];
 // function to add tasks
 export function addTask(task) {
     taskList.push(task);
-    return task; 
+    return true; 
 }
 
 // function to get/ list tasks
@@ -18,7 +18,10 @@ export function deleteTask(taskId) {
 
     // task not found
     if (index === -1) return false;
+
+    // proceed to deleting
     taskList.splice(index, 1);
+
     return true;
 }
 
@@ -30,12 +33,13 @@ export function markAsCompleted(taskId) {
     if (!currentTask) return false;
 
     // check if task is already marked aa complete
-    if (currentTask.status === "completed") return true;
+    if (currentTask.status === "completed") return false;
     currentTask.status = "completed";
 
     // update
     currentTask.updatedAt = new Date().toISOString();
-    return currentTask;
+    
+    return true;
 };
 
 // Editable fields whitelist
@@ -51,7 +55,7 @@ export function updateTask(taskId, updates) {
 
     // Nothing to update
     if (Object.entries(updates).length === 0) {
-        return true;
+        return false;
     }
 
     // Find the task
@@ -92,7 +96,7 @@ export function updateTask(taskId, updates) {
         currentTask.updatedAt = new Date().toISOString();
     }
 
-    return true;
+    return didAnythingChange;
 }
 
 // check if a project has incomplete tasks
@@ -112,38 +116,17 @@ export function setTasks(tasks){
 };
 
 
-
-// function to render tasks
-export function renderTasks(taskId){
-    const tasks = getTasks();
-    return tasks;
-};
-
 // keep only tasks without a project
 export function getUnassignedTasks(){
-    const tasks = getTasks();
-
-    // get tasks equal to null
-    const unassignedTasks = tasks.filter(task => task.projectId === null);
-    return unassignedTasks;
-};
+    return taskList.filter(task => task.projectId === null);
+}
 
 // get tasks by their id's
 export function getTaskById(taskId){
-    const tasks = getTasks();
-
-    const task = tasks.find(task => task.taskId === taskId);
-
-    // return matching task ,otherwise null
-    return task || null;
-};
+    return taskList.find(task => task.taskId === taskId) || null;
+}
 
 // get tasks attached to a project
 export function getTaskByProjectId(projectId){
-    const tasks = getTasks();
-
-    const projectTask = tasks.filter(task => task.projectId  === projectId);
-
-    // return matching tasks
-    return projectTask;
-};
+    return taskList.filter(task => task.projectId === projectId);
+}

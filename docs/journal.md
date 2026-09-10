@@ -466,3 +466,10 @@ Monday 7th September
  ## What did I learn today?
  - Used the command; tree /F to inspect my project structure in a tree format.
  - Dove into how to go about refactoring by asking 6 questions while inspecting each module as described in the hanbook.md file.
+
+ ## Date
+ Thursday 1oth September
+
+ ## What did I learn today?
+ - A manager command such as, addTask(), that changes state,should return a boolean to indicate whether the operation succeeded or not.
+ - A manager query such as, getTask(), should return raw data.

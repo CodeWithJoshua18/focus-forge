@@ -4,7 +4,7 @@ import { exit } from "./cli/exit.js";
 import { promptProject } from "./cli/projectPrompt.js";
 import { promptTask } from "./cli/taskPrompt.js";
 import { renderProjects } from "./projects/projectView.js";
-
+import { renderTasks } from "./tasks/taskView.js";
 
 // function to map user choice to appropriate controller
 export async function route(choice) {

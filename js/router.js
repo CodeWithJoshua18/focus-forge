@@ -13,17 +13,21 @@ export async function route(choice) {
             handleAddProject(await promptProject());
             break;
         case "2":
+            break;    
+        case "3":
             const projects = handleListProjects();
             console.log(renderProjects(projects));
             break;
-        case "3":
+        case "4":
             handleAddTask(await promptTask());
             break;
-        case "4":
+        case "5":
+            break;    
+        case "6":
             const tasks = handleListTasks();
             console.log(renderTasks(tasks));
             break;
-        case "5":
+        case "7":
             exit();
             break;
         default:

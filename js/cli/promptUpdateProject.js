@@ -7,9 +7,9 @@ export async function promptUpdate(){
 
     // ask fields to be updated
     const id = await rl.question("Enter project Id: ");
-    const name = await rl.question("Enter project name: ");
-    const description = await rl.question("Enter project description: ");
-    const deadline = await rl.question("Enter project deadline: ");
+    const name = await rl.question("Enter new project name: ");
+    const description = await rl.question("Enter new project description: ");
+    const deadline = await rl.question("Enter new project deadline: ");
 
     rl.close();
 

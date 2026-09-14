@@ -11,12 +11,12 @@
   },
   {
     "taskId": "2",
-    "title": "Refactor focus-forge",
-    "description": "refactoring taskView.js file",
+    "title": "CRUD OPERATIONS",
+    "description": "Complete CRUD operations",
     "priority": "High",
     "projectId": null,
     "status": "pending",
     "createdAt": "2026-09-09T06:48:35.259Z",
-    "updatedAt": "2026-09-09T06:48:35.259Z"
+    "updatedAt": "2026-09-14T07:38:38.820Z"
   }
 ]

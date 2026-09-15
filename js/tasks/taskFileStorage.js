@@ -20,3 +20,8 @@ export function loadTasks() {
     return [];
   }
 }
+
+export const taskFileStorage = {
+    saveTasks,
+    loadTasks
+};

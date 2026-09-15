@@ -20,3 +20,8 @@ export function loadProjects() {
     return [];
   }
 }
+
+export const projectFileStorage = {
+    saveProjects,
+    loadProjects
+};

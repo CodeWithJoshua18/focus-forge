@@ -4,12 +4,14 @@ export function displayMainMenu() {
 Welcome to Focus Forge
 =================================
 
-1. Create project
+1. Create Project
 2. Update Project
-3. List projects
-4. Create task
-5. Update Task
-6. List tasks
-7. Exit
+3. List Projects
+4. Delete Project
+5. Create Task
+6. Update Task
+7. List Tasks
+8. Delete Task
+9. Exit
 `;
 }

@@ -1,5 +1,5 @@
-import { handleAddProject, handleListProjects, handleUpdateProject } from "./projects/projectController.js";
-import { handleAddTask, handleListTasks, handleUpdateTask } from "./tasks/taskController.js";
+import { handleAddProject, handleDeleteProject, handleListProjects, handleUpdateProject } from "./projects/projectController.js";
+import { handleAddTask, handleDeleteTask, handleListTasks, handleUpdateTask } from "./tasks/taskController.js";
 import { exit } from "./cli/exit.js";
 import { promptProject } from "./cli/projectPrompt.js";
 import { promptTask } from "./cli/taskPrompt.js";
@@ -7,6 +7,8 @@ import { renderProjects } from "./projects/projectView.js";
 import { renderTasks } from "./tasks/taskView.js";
 import { promptUpdate } from "./cli/promptUpdateProject.js";
 import { taskUpdate } from "./cli/promptUpdateTask.js";
+import { promptDeleteTask } from "./cli/deleteTaskPrompt.js";
+import { promptDeleteProject } from "./cli/deleteProjectPrompt.js";
 
 // function to map user choice to appropriate controller
 export async function route(choice) {
@@ -26,22 +28,34 @@ export async function route(choice) {
             console.log(renderProjects(projects));
             break;
         }
-        case "4": {
-            handleAddTask(await promptTask());
+        case "4":{
+            const { id } = await promptDeleteProject();
+            const success = handleDeleteProject(id);
+            console.log(success ? "Project deleted successfully" : "Project deletion failed");
             break;
         }
         case "5": {
+            handleAddTask(await promptTask());
+            break;
+        }
+        case "6": {
             const { taskId, updates } = await taskUpdate();
             const successfulUpdate = handleUpdateTask(taskId, updates);
             console.log(successfulUpdate ? "Task updated successfully" : "Task update failed");
             break;
         }
-        case "6": {
+        case "7": {
             const tasks = handleListTasks();
             console.log(renderTasks(tasks));
             break;
         }
-        case "7": {
+        case "8": {
+            const { taskId} = await promptDeleteTask();
+            const success = handleDeleteTask(taskId);
+            console.log(success ? "Task deleted successfully" : "Task deletion failed");
+            break;
+        }
+        case "9": {
             exit();
             break;
         }

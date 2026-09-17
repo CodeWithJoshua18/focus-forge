@@ -473,3 +473,10 @@ Monday 7th September
  ## What did I learn today?
  - A manager command such as, addTask(), that changes state,should return a boolean to indicate whether the operation succeeded or not.
  - A manager query such as, getTask(), should return raw data.
+
+ ## Date
+ Thursday 17th September
+
+ ## What did I learn today?
+ - Factory functions -> decide/create what dependancy to use.
+ - Dependancy injection -> gives the dependancy to the component that needs it. 

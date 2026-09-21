@@ -11,12 +11,18 @@ import { createTaskPersistence } from "./persistence/taskPersistence.js";
 import { setProjects } from "./projects/projectManager.js";
 import { setTasks } from "./tasks/taskManager.js";
 
+import { createProjectController } from "./projects/projectController.js";
+import { createTaskController } from "./tasks/taskController.js";
+
 async function startApp(){
 
     // choose persistence implementations
     const projectPersistence = createProjectPersistence(projectFileStorage);
-
     const taskPersistence = createTaskPersistence(taskFileStorage);
+
+    // choose controller actions
+    const projectController = createProjectController(projectPersistence);
+    const taskController = createTaskController(taskPersistence);
 
     // hydrate project data
     const projects = projectPersistence.load();
@@ -31,7 +37,7 @@ async function startApp(){
 
         const choice = await prompt();
 
-        await route(choice);
+        await route(choice, projectController, taskController);
     }
 }
 

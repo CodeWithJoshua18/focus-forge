@@ -1,46 +1,46 @@
 import { createProject } from "./projectModel.js";
 import { addProject, deleteProject, getProjects, updateProject, archiveProject, getProjectById } from "./projectManager.js";
-import { saveProjects } from "./projectFileStorage.js";
 
-// write operations
 
-// handle addition of projects
-export function handleAddProject(projectData){
-    // call create function
-    const project = createProject(projectData);
 
-    // project creation failed
-    if(!project) return false;
+export function createProjectController(projectPersistence) {
+    // write operations
 
-    //  addition of a project fails
-    if(!addProject(project)) return false;
+    // handle addition of projects
+    function handleAddProject(projectData) {
+        // call create function
+        const project = createProject(projectData);
 
-    // save current state of project collection
-    const projects = getProjects();
-    saveProjects(projects);
+        // project creation failed
+        if (!project) return false;
 
-    // successful addition
-    return true;
-};
+        // addition of a project fails
+        if (!addProject(project)) return false;
 
-// handle deletion of projects
-export function handleDeleteProject(id){
-    // call delete function
-    const deletedProject = deleteProject(id);
+        // save current state of project collection
+        projectPersistence.save(getProjects());
 
-    // project deletion failed
-    if(!deletedProject) return false;
+        // successful addition
+        return true;
+    }
+
+    // handle deletion of projects
+     function handleDeleteProject(id){
+       // call delete function
+        const deletedProject = deleteProject(id);
+
+       // project deletion failed
+       if(!deletedProject) return false;
 
     // persist new state after deletion
-    const projects = getProjects();
-    saveProjects(projects);
+        projectPersistence.save(getProjects());
 
     // handle successfull deletion
     return true;
-};
+}; 
 
-// handle updating a project
-export function handleUpdateProject(id, updates){
+    // handle updating a project
+     function handleUpdateProject(id, updates){
     // call the update function
     const updatedProject = updateProject(id, updates);
 
@@ -48,35 +48,44 @@ export function handleUpdateProject(id, updates){
     if(!updatedProject) return false;
 
     // save project
-    const projects = getProjects();
-    saveProjects(projects);
+    projectPersistence.save(getProjects());
 
     // handle successful update
     return true;
 };
 
-// handle project archiving
-export function handleArchiveProject(projectId){
-    const archivedproject = archiveProject(projectId);
+    // handle project archiving
+     function handleArchiveProject(projectId){
+      const archivedproject = archiveProject(projectId);
 
     // project archiving failed
     if(!archivedproject) return false;
 
     // persist changes
-    const projects = getProjects();
-    saveProjects(projects);
+    projectPersistence.save(getProjects());
 
     return true;
 };
 
-// read operations
+   // read operations
 
 // handle listing of projects
-export function handleListProjects(){
+ function handleListProjects(){
    return getProjects();
 };
 
 // handling fetching of project by Id
-export function handleGetProjectById(projectId){
+function handleGetProjectById(projectId){
     return getProjectById(projectId);
 };
+
+    return {
+        handleAddProject,
+        handleDeleteProject,
+        handleUpdateProject,
+        handleArchiveProject,
+        handleListProjects,
+        handleGetProjectById
+    };
+}
+

@@ -1,0 +1,27 @@
+{
+  "name": "focus-forge",
+  "version": "1.0.0",
+  "description": "Focus Forge is a productivity-focused system designed to help learners and developers build discipline, organize their work, track productive activity, and measure meaningful progress.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeWithJoshua18/focus-forge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/CodeWithJoshua18/focus-forge/issues"
+  },
+  "homepage": "https://github.com/CodeWithJoshua18/focus-forge#readme",
+  "devDependencies": {
+    "vitest": "^5.0.1"
+  }
+}

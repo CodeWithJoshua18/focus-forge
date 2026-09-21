@@ -59,3 +59,17 @@
 - CLI-specific?:
 - Potential issue:
 - Decision:
+
+## Test Driven Development template guide
+Behavior:
+A project with incomplete tasks cannot be deleted.
+
+Given:
+A project exists with an incomplete task attached to it.
+
+When:
+I attempt to delete the project.
+
+Then:
+The deletion is rejected.
+The project remains.

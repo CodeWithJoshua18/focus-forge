@@ -480,3 +480,19 @@ Monday 7th September
  ## What did I learn today?
  - Factory functions -> decide/create what dependancy to use.
  - Dependancy injection -> gives the dependancy to the component that needs it. 
+
+ ## Date
+ Monday 21st September
+
+ ## What did I learn today?
+ - Getting into the concept of Test-Driven-Development.It has 3 steps;
+        - Red -> write a test that fails since we have not implemented the behaviour.
+        - Green -> write the simplest code that passes(answers the question,what would have to be true for the test to pass?).
+        - Refactor -> improve the implementation.
+ - Created a TDD checklist;
+      1. What behaviour is the system trying to guarantee?(answers the question, what should the system do).
+      2. What are the possible scenerios?(take behaviour and turn it into situations). 
+      3. Pick one behaviour(i.e. does deleting a project with incomplete taks get rejected?).
+      4. What state must exist before the operation(Arrange part. Answers the question,what does the system need to look like for this operation to occur?).
+      5. What operation am I testing?(Act part.Answers the question,what public function woould the application call? Test what the system does).
+      6. What should be the observable result be? i.e. return value and state change.       

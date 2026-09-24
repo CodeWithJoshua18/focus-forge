@@ -69,17 +69,17 @@ export function deleteProject(projectId){
     const index = projectList.findIndex(currentProject => currentProject.id === projectId);
 
     // check if project exists
-    if(index === -1) return false;
+    if(index === -1) return "Project_Not_Found";
 
     // check if project has incomplete tasks
     if(hasIncompleteTasks(projectId)){
-        return false;
+        return "Project_Has_Incomplete_Tasks";
     }
 
     // delete project
     projectList.splice(index, 1);
 
-    return true;
+    return "Project_Deleted";
 };
 
 // archive project

@@ -27,16 +27,23 @@ export function createProjectController(projectPersistence) {
     // handle deletion of projects
      function handleDeleteProject(id){
        // call delete function
-        const deletedProject = deleteProject(id);
+        const result = deleteProject(id);
 
-       // project deletion failed
-       if(!deletedProject) return false;
+        // project does not exist
+        if(result === "Project_Not_Found"){
+            return result;
+        }
 
-    // persist new state after deletion
+        // project has incomplete tasks
+        if(result === "Project_Has_Incomplete_Tasks"){
+            return result;
+        }
+
+        // proceed to deletion
         projectPersistence.save(getProjects());
 
-    // handle successfull deletion
-    return true;
+        return result;
+
 }; 
 
     // handle updating a project

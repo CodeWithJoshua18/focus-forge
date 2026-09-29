@@ -12,7 +12,7 @@ export function createProjectController(projectPersistence) {
         const project = createProject(projectData);
 
         // project creation failed
-        if (!project) return false;
+        if (!project) return "Project_Name_Or_Id_Missing";
 
         // addition of a project fails
         if (!addProject(project)) return false;

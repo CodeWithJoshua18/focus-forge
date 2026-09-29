@@ -1,4 +1,4 @@
-import { describe, test, expect } from "vitest";
+import { describe, test, expect, vi } from "vitest";
 
 import { createProjectController } from "../../js/projects/projectController.js";
 import { addProject, setProjects } from "../../js/projects/projectManager.js";
@@ -89,4 +89,63 @@ describe("handleDeleteProject", () => {
     // Assert
     expect(deleteResult).toBe("Project_Deleted");
 });
+
+    test("handleDeleteProject calls persistence save when the project is sucessfully deleted", () => {
+        // Arrange
+        setProjects([]);
+
+        const projectPersistence = {
+            save: vi.fn(),
+        };
+
+        const projectController = createProjectController(projectPersistence);
+
+        const project = createProject({
+            id: "1",
+            name: "persistence test"
+        });
+
+        addProject(project);
+
+        // Act
+        const deleteResult = projectController.handleDeleteProject("1");
+
+        // Assert
+        expect(projectPersistence.save).toHaveBeenCalled();
+    });
+
+    test("handleDelete does not call persistence save when a project has incomplete tasks", () => {
+        // Arrange
+        setProjects([]);
+        setTasks([]);
+
+        const project2 = createProject({
+            id: "2",
+            name: "Persistence test"
+        });
+
+        const task2 = createTask({
+            taskId: 1,
+            title: "testing persistence",
+            description: "when deletion fails, controller should not save the collection",
+            priority: "high",
+            projectId: "2"
+        });
+
+        const projectPersistence = {
+            save: vi.fn(),
+        };
+
+        const projectController = createProjectController(projectPersistence);
+
+        addProject(project2);
+        addTask(task2);
+
+        // Act
+        const deleteResult2 = projectController.handleDeleteProject("2");
+
+        // Assert
+        expect(deleteResult2).toBe("Project_Has_Incomplete_Tasks");
+        expect(projectPersistence.save).not.toHaveBeenCalled();
+    });
 });

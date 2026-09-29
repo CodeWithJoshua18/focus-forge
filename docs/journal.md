@@ -503,3 +503,9 @@ Monday 28th September
 ## What did I learn today?
 - Got to understand how to test return values in TDD.
 - Learned how to pass domain result upwards in controllers so that they maintain the SRP.
+
+## Date
+Tuesday 29th September
+
+## What did I learn today?
+- Looked into vitest's; vi.fn(), function and its uses => it is a recording function and it tracks whether a function was called, how many times it was called,what argumnts were passed and in what order.

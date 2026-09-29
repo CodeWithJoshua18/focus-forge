@@ -495,4 +495,11 @@ Monday 7th September
       3. Pick one behaviour(i.e. does deleting a project with incomplete taks get rejected?).
       4. What state must exist before the operation(Arrange part. Answers the question,what does the system need to look like for this operation to occur?).
       5. What operation am I testing?(Act part.Answers the question,what public function woould the application call? Test what the system does).
-      6. What should be the observable result be? i.e. return value and state change.       
+      6. What should be the observable result be? i.e. return value and state change.
+
+## Date
+Monday 28th September
+
+## What did I learn today?
+- Got to understand how to test return values in TDD.
+- Learned how to pass domain result upwards in controllers so that they maintain the SRP.

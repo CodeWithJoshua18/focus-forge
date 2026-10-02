@@ -196,4 +196,24 @@ describe("handleAddProject", () => {
     // Assert
     expect(projectPersistence.save).not.toHaveBeenCalled();
   });
+
+  test("Return success message upon successful project creation", () => {
+    // Arrange
+    setProjects([]);
+
+    const projectPersistence = {
+      save: () => {}
+    };
+
+    const projectController = createProjectController(projectPersistence);
+
+    // Act
+    const projectCreation = projectController.handleAddProject({
+      id: "5",
+      name: "Focus-Forge"
+    });
+
+    // Assert
+    expect(projectCreation).toBe("Project_Created_Successfully");
+  });
 });

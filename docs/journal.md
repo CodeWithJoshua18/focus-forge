@@ -509,3 +509,9 @@ Tuesday 29th September
 
 ## What did I learn today?
 - Looked into vitest's; vi.fn(), function and its uses => it is a recording function and it tracks whether a function was called, how many times it was called,what argumnts were passed and in what order.
+
+## Date
+Friday 2nd October
+
+## What did I learn today?
+- TDD does not inspect internal implementation directly instead, it interacts with the system through its public functions.

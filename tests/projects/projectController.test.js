@@ -186,5 +186,14 @@ describe("handleAddProject", () => {
     };
 
     const projectController = createProjectController(projectPersistence);
+
+    // Act
+    const result4 = projectController.handleAddProject({
+      id: "1",
+      name: ""
+    });
+
+    // Assert
+    expect(projectPersistence.save).not.toHaveBeenCalled();
   });
 });

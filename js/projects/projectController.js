@@ -21,7 +21,7 @@ export function createProjectController(projectPersistence) {
         projectPersistence.save(getProjects());
 
         // successful addition
-        return true;
+        return "Project_Created_Successfully";
     }
 
     // handle deletion of projects

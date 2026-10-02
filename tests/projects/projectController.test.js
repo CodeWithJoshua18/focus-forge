@@ -1,7 +1,7 @@
 import { describe, test, expect, vi } from "vitest";
 
 import { createProjectController } from "../../js/projects/projectController.js";
-import { addProject, setProjects } from "../../js/projects/projectManager.js";
+import { addProject, getProjectById, setProjects } from "../../js/projects/projectManager.js";
 import {
   addTask,
   setTasks,
@@ -202,7 +202,7 @@ describe("handleAddProject", () => {
     setProjects([]);
 
     const projectPersistence = {
-      save: () => {}
+      save: vi.fn()
     };
 
     const projectController = createProjectController(projectPersistence);
@@ -215,5 +215,28 @@ describe("handleAddProject", () => {
 
     // Assert
     expect(projectCreation).toBe("Project_Created_Successfully");
+    expect(projectPersistence.save).toHaveBeenCalled();
+  });
+
+  test("After calling handleAddProject, getProjectById should provide the created project", () => {
+    // Arrange
+    setProjects([]);
+
+    const projectPersistence = {
+      save: vi.fn()
+    };
+
+    const projectController = createProjectController(projectPersistence);
+
+    // Act
+    const project = projectController.handleAddProject({
+      id: "7",
+      name: "Testing fetching of projects"
+    });
+
+    addProject(project);
+
+    // Assert
+    expect(getProjectById("7")).not.toBeNull();
   });
 });

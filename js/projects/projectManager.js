@@ -25,16 +25,15 @@ const editableProjectFields = [
 
 export function updateProject(id, updates){
     // nothing to update
-    if(Object.entries(updates).length === 0){
-        return false;
-    };
-
+    if (!updates || Object.entries(updates).length === 0) {
+    return "Nothing_To_Update";
+    }
     // find project
     const currentProject = projectList.find(project => project.id === id);
 
     // if project doesnt exist
     if(!currentProject){
-        return false;
+        return "Project_Not_Found";
     };
     
     // track whether a field was updated

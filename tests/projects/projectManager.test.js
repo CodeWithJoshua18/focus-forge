@@ -5,7 +5,8 @@ import {
     addProject,
     deleteProject,
     getProjectById,
-    setProjects
+    setProjects,
+    updateProject
 } from "../../js/projects/projectManager.js";
 
 import { createTask } from "../../js/tasks/taskModel.js";
@@ -13,6 +14,7 @@ import {
     addTask,
     setTasks
 } from "../../js/tasks/taskManager.js";
+import { createProjectController } from "../../js/projects/projectController.js";
 
 
 describe("deleteProject", () => {
@@ -79,4 +81,37 @@ describe("deleteProject", () => {
         expect(getProjectById("1")).toBeNull();
     });
 
+});
+
+describe("updateProject", () => {
+    test("update project should provide a message when there is nothing to update", () => {
+        // Arrange
+        setProjects([]);
+
+        // Act
+        const updateProject1 = updateProject({
+            id: "1",
+            name: "Focus-Forge"
+        });
+
+        addProject(updateProject1);
+
+        // Assert
+        expect(updateProject1).toBe("Nothing_To_Update");
+    });
+
+    test("Error message should be provided if the project selected to be updated does not exist", () => {
+        // Arrange
+        setProjects([]);
+
+        // Act
+        const currentProject = updateProject(
+            "5", 
+            { name: "focus forge version 1" });
+
+        addProject(currentProject);
+
+        // Assert
+        expect(currentProject).toBe("Project_Not_Found");
+    });
 });

@@ -4,6 +4,7 @@ import { createProject } from "../../js/projects/projectModel.js";
 import {
   addProject,
   deleteProject,
+  getProjects,
   getProjectById,
   setProjects,
   updateProject,
@@ -127,4 +128,28 @@ describe("updateProject", () => {
     // Assert
     expect(result).toBe("Project_Updated");
   });
+
+  test("updatedAt changes when project is updated", () => {
+    // Arrange
+    setProjects([]);
+
+    addProject({
+        id: "1",
+        name: "Old Project",
+        description: "Old description",
+        updatedAt: "2026-10-23T10:00:00.000Z"
+    });
+
+    const beforeUpdate = getProjects()[0].updatedAt;
+
+    // Act
+    updateProject("1", {
+        name: "FocusForge"
+    });
+
+    const afterUpdate = getProjects()[0].updatedAt;
+
+    // Assert
+    expect(afterUpdate).not.toBe(beforeUpdate);
+});
 });

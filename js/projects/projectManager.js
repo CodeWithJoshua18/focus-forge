@@ -52,7 +52,7 @@ export function updateProject(id, updates){
 
         // update field
         currentProject[Key] = value;
-        didProjectChange = true;
+        didProjectChange = "Project_Updated";
     })
 
     // update timestamp only if something changed

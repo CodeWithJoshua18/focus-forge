@@ -262,7 +262,7 @@ describe("handleUpdateProject", () => {
 
     const updateResult = projectController.handleUpdateProject("2",{
       name: "Focus-Forge"
-    })
+    });
 
     // Assert
     expect(updateResult).toBe("Project_Not_Found");

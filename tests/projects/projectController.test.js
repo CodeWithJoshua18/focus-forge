@@ -1,7 +1,7 @@
 import { describe, test, expect, vi } from "vitest";
 
 import { createProjectController } from "../../js/projects/projectController.js";
-import { addProject, getProjectById, setProjects } from "../../js/projects/projectManager.js";
+import { addProject, updateProject,getProjectById, setProjects } from "../../js/projects/projectManager.js";
 import {
   addTask,
   setTasks,
@@ -238,5 +238,33 @@ describe("handleAddProject", () => {
 
     // Assert
     expect(getProjectById("7")).not.toBeNull();
+  });
+});
+
+describe("handleUpdateProject", () => {
+  test("returns Project_Not_Found when user tries to update a non-exixtent project", () => {
+    // Arrange
+    setProjects([]);
+
+    const projectPersistence = {
+      save: vi.fn()
+    };
+
+    const projectController = createProjectController(projectPersistence);
+
+    // Act
+    const project1 = projectController.handleAddProject({
+      id: "8",
+      name: "FocusForge v1.0"
+    });
+
+    addProject(project1);
+
+    const updateResult = projectController.handleUpdateProject("2",{
+      name: "Focus-Forge"
+    })
+
+    // Assert
+    expect(updateResult).toBe("Project_Not_Found");
   });
 });

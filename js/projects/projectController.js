@@ -49,10 +49,10 @@ export function createProjectController(projectPersistence) {
     // handle updating a project
      function handleUpdateProject(id, updates){
     // call the update function
-    const updatedProject = updateProject(id, updates);
+    const result = updateProject(id, updates);
 
     // project not found
-    if(!updatedProject) return false;
+    if(result !== "Project_Updated") return result;
 
     // save project
     projectPersistence.save(getProjects());

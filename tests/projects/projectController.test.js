@@ -270,4 +270,46 @@ describe("handleUpdateProject", () => {
     expect(updateResult).toBe("Project_Not_Found");
     expect(projectPersistence.save).not.toHaveBeenCalled();
   });
+
+  test("Empty Updates are rejected",() => {
+    // Arrange
+    setProjects([{
+      id: "9",
+      name: "Empty project test"
+    }]);
+
+    const projectPersistence = {
+      save: vi.fn()
+    };
+
+    // Act 
+    const projectController = createProjectController(projectPersistence);
+
+    const emptyUpdate = projectController.handleUpdateProject({});
+
+    // Assert
+    expect(emptyUpdate).toBe("Nothing_To_Update");
+    expect(projectPersistence.save).not.toHaveBeenCalled();
+  });
+
+  test("Updates with no editable fields are rejected", () => {
+    // Arrange
+    setProjects([{
+      id: "1",
+      name: "Focus-forge 3"
+    }]);
+
+    const projectPersistence = {
+      save: vi.fn()
+    };
+
+    // Act
+    const projectController = createProjectController(projectPersistence);
+    const updateResult1 = projectController.handleUpdateProject("1", {
+      id: "2"
+    });
+
+    // Assert
+    expect(updateResult1).toBe(false);
+  });
 });

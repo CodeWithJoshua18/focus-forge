@@ -58,7 +58,7 @@ export function createProjectController(projectPersistence) {
     projectPersistence.save(getProjects());
 
     // handle successful update
-    return true;
+    return "Project_Updated";
 };
 
     // handle project archiving

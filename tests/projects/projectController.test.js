@@ -312,4 +312,27 @@ describe("handleUpdateProject", () => {
     // Assert
     expect(updateResult1).toBe(false);
   });
+
+  test("Persistence is called after successful update", () => {
+    // Arrange
+    setProjects([{
+      id: "4",
+      name: "Focus forge update function",
+      description: "Testing the update controller"
+    }]);
+
+    const projectPersistence = {
+      save: vi.fn()
+    };
+
+    // Act
+    const projectController = createProjectController(projectPersistence);
+    const updateResult2 = projectController.handleUpdateProject("4", {
+      name: "Focus-Forge controller functionality update"
+    });
+
+    // Assert
+    expect(updateResult2).toBe("Project_Updated");
+    expect(projectPersistence.save).toHaveBeenCalled();
+  });
 });

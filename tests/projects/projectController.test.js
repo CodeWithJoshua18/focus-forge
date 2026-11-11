@@ -1,7 +1,12 @@
 import { describe, test, expect, vi } from "vitest";
 
 import { createProjectController } from "../../js/projects/projectController.js";
-import { addProject, updateProject,getProjectById, setProjects } from "../../js/projects/projectManager.js";
+import {
+  addProject,
+  updateProject,
+  getProjectById,
+  setProjects,
+} from "../../js/projects/projectManager.js";
 import {
   addTask,
   setTasks,
@@ -182,7 +187,7 @@ describe("handleAddProject", () => {
     addProject([]);
 
     const projectPersistence = {
-        save: vi.fn(),
+      save: vi.fn(),
     };
 
     const projectController = createProjectController(projectPersistence);
@@ -190,7 +195,7 @@ describe("handleAddProject", () => {
     // Act
     const result4 = projectController.handleAddProject({
       id: "1",
-      name: ""
+      name: "",
     });
 
     // Assert
@@ -202,7 +207,7 @@ describe("handleAddProject", () => {
     setProjects([]);
 
     const projectPersistence = {
-      save: vi.fn()
+      save: vi.fn(),
     };
 
     const projectController = createProjectController(projectPersistence);
@@ -210,7 +215,7 @@ describe("handleAddProject", () => {
     // Act
     const projectCreation = projectController.handleAddProject({
       id: "5",
-      name: "Focus-Forge"
+      name: "Focus-Forge",
     });
 
     // Assert
@@ -223,7 +228,7 @@ describe("handleAddProject", () => {
     setProjects([]);
 
     const projectPersistence = {
-      save: vi.fn()
+      save: vi.fn(),
     };
 
     const projectController = createProjectController(projectPersistence);
@@ -231,7 +236,7 @@ describe("handleAddProject", () => {
     // Act
     const project = projectController.handleAddProject({
       id: "7",
-      name: "Testing fetching of projects"
+      name: "Testing fetching of projects",
     });
 
     addProject(project);
@@ -244,27 +249,25 @@ describe("handleAddProject", () => {
 describe("handleUpdateProject", () => {
   test("returns Project_Not_Found when user tries to update a non-exixtent project", () => {
     // Arrange
-    setProjects([]);
+    setProjects([
+      {
+        id: "8",
+        name: "FocusForge v1.0",
+      },
+    ]);
 
     const projectPersistence = {
-      save: vi.fn()
+      save: vi.fn(),
     };
-
+  //  Act
     const projectController = createProjectController(projectPersistence);
 
-    // Act
-    const project1 = projectController.handleAddProject({
-      id: "8",
-      name: "FocusForge v1.0"
-    });
-
-    addProject(project1);
-
-    const updateResult = projectController.handleUpdateProject("2",{
-      name: "Focus-Forge"
+    const updateResult = projectController.handleUpdateProject("2", {
+      name: "Focus-Forge",
     });
 
     // Assert
     expect(updateResult).toBe("Project_Not_Found");
+    expect(projectPersistence.save).not.toHaveBeenCalled();
   });
 });

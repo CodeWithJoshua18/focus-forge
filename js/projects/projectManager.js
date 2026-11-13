@@ -104,7 +104,7 @@ export function archiveProject(projectId){
     currentProject.updatedAt = new Date().toISOString();
     currentProject.completedAt = new Date().toISOString();
 
-    return true;
+    return "Project_Archived";
 };
 
 // set projects

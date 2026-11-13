@@ -92,7 +92,7 @@ export function archiveProject(projectId){
 
     // check if it has incomplete tasks
     if(hasIncompleteTasks(projectId)){
-        return false;
+        return "Project_Has_Incomplete_Tasks";
     };
 
     // check if project is already archived

@@ -8,10 +8,11 @@ import {
   getProjectById,
   setProjects,
   updateProject,
+  archiveProject,
 } from "../../js/projects/projectManager.js";
 
 import { createTask } from "../../js/tasks/taskModel.js";
-import { addTask, setTasks } from "../../js/tasks/taskManager.js";
+import { addTask, getTaskByProjectId, setTasks } from "../../js/tasks/taskManager.js";
 import { createProjectController } from "../../js/projects/projectController.js";
 
 describe("deleteProject", () => {
@@ -152,4 +153,27 @@ describe("updateProject", () => {
     // Assert
     expect(afterUpdate).not.toBe(beforeUpdate);
 });
+});
+
+describe("archiveProject", () => {
+  test("Returns Project-Not-Found when user tries to archive a non-existent project", () => {
+    // Arrange
+    setProjects([]);
+
+    addProject({
+      id: "2",
+      name: "Focus Forge archive functionality",
+      description: "focus forge description",
+    });
+
+    // Act
+    const result1 = archiveProject("3", {
+      name: "Focus-Forge"
+    });
+
+    // Assert
+    expect(result1).toBe("Project_Not_Found");
+    expect(getTaskByProjectId("2")).toBeDefined();
+
+  });
 });

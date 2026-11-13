@@ -167,13 +167,28 @@ describe("archiveProject", () => {
     });
 
     // Act
-    const result1 = archiveProject("3", {
-      name: "Focus-Forge"
-    });
+    const result1 = archiveProject("3");
 
     // Assert
     expect(result1).toBe("Project_Not_Found");
     expect(getTaskByProjectId("2")).toBeDefined();
 
+  });
+
+  test("Return Project_Archived upon successful archiving", () => {
+    // Arrange
+    setProjects([]);
+
+    addProject({
+      id: "4",
+      name: "Focus-Forge v2.0",
+      description: "Testing successful update"
+    });
+
+    // Act
+    const result2 = archiveProject("4");
+
+    // Assert
+    expect(result2).toBe("Project_Archived");
   });
 });

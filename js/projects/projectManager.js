@@ -86,7 +86,7 @@ export function archiveProject(projectId){
     const projectIndex = projectList.findIndex(currentProject => currentProject.id === projectId);
 
     // check if project exists
-    if(projectIndex === -1) return false;
+    if(projectIndex === -1) return "Project_Not_Found";
 
     const currentProject = projectList[projectIndex];
 

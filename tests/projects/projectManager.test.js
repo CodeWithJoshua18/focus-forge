@@ -190,5 +190,34 @@ describe("archiveProject", () => {
 
     // Assert
     expect(result2).toBe("Project_Archived");
+    expect(getProjectById("4")).toBeDefined();
+    expect(getProjectById("4").archived).toBe(true);
+  });
+
+  test("Returns Project_Has_Incomplete_Tasks when a user tries archiving a project with incomplete tasks", () => {
+    // Arrange
+    setProjects([]);
+    setTasks([]);
+
+    addProject({
+      id: "4",
+      name: "Ios Training",
+      description: "Apple ios training course"
+    });
+
+    addTask({
+      taskId: "1",
+      title: "Install swift",
+      description: "Install environment to handle IOS development",
+      priority: "High",
+      projectId: "4"
+    });
+
+    // Act
+    const result3 = archiveProject("4");
+
+    // Asssert
+    expect(result3).toBe("Project_Has_Incomplete_Tasks");
+    expect(getProjectById("4")).toBeDefined();
   });
 });

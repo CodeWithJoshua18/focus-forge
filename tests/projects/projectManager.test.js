@@ -13,7 +13,6 @@ import {
 
 import { createTask } from "../../js/tasks/taskModel.js";
 import { addTask, getTaskByProjectId, setTasks } from "../../js/tasks/taskManager.js";
-import { createProjectController } from "../../js/projects/projectController.js";
 
 describe("deleteProject", () => {
   test("does not delete a project with incomplete tasks", () => {
@@ -219,5 +218,24 @@ describe("archiveProject", () => {
     // Asssert
     expect(result3).toBe("Project_Has_Incomplete_Tasks");
     expect(getProjectById("4")).toBeDefined();
+  });
+
+  test("Returns Project_Already_Archived when a user tries archiving an already archived project", () => {
+    // Arrange
+    setProjects([]);
+
+    addProject({
+      id: "5",
+      name: "Focus-Forge v2.0",
+      description: "Testing successful update"
+    });
+
+    // Act
+    const result2 = archiveProject("5");
+    const result3 = archiveProject("5");
+
+    // Assert
+    expect(result3).toBe("Project_Already_Archived");
+    expect(getProjectById("5").archived).toBe(true);
   });
 });

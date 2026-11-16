@@ -336,3 +336,26 @@ describe("handleUpdateProject", () => {
     expect(projectPersistence.save).toHaveBeenCalled();
   });
 });
+
+describe("handleArchiveProject", () => {
+  test("The controller should return Project_Not_Found when a user tries to archive a project that doesn't exist, without calling persistence", () => {
+    // Arrange
+    setProjects([{
+      id: "10",
+      name: "Focus-Forge Archiving functionality",
+      description: "Testing archiving of a non-exsitent project"
+    }]);
+
+    const projectPersistence = {
+      save: vi.fn()
+    };
+
+    // Act
+    const projectController = createProjectController(projectPersistence);
+    const archiveResult1 = projectController.handleArchiveProject("11");
+
+    // Assert
+    expect(archiveResult1).toBe("Project_Not_Found");
+    expect(projectPersistence.save).not.toHaveBeenCalled();
+  });
+});

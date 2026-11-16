@@ -358,4 +358,33 @@ describe("handleArchiveProject", () => {
     expect(archiveResult1).toBe("Project_Not_Found");
     expect(projectPersistence.save).not.toHaveBeenCalled();
   });
+  
+  test("The controller should return Project_Has_Incomplete_Tasks when a user attempts to archive a project containing incomplete tasks, without calling persistence", () => {
+    // Arrange
+    setProjects([{
+      id: "12",
+      name: "handleArchiveProject Controller test",
+      description: "Testing that handle archivng controller does not archive a project with incomplete tasks"
+    }]);
+
+    setTasks([{
+      taskId: "1",
+      title: "Test 1",
+      description: "This is the first task assigned to the project",
+      priority: "High",
+      projectId: "12"
+    }]);
+
+    const projectPersistence = {
+      save: vi.fn()
+    };
+
+    // Act
+    const projectController = createProjectController(projectPersistence);
+    const archiveResult2 = projectController.handleArchiveProject("12");
+
+    // Assert
+    expect(archiveResult2).toBe("Project_Has_Incomplete_Tasks");
+    expect(projectPersistence.save).not.toHaveBeenCalled();
+  });
 });

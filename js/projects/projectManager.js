@@ -96,7 +96,7 @@ export function archiveProject(projectId){
     };
 
     // check if project is already archived
-    if(currentProject.archived) return false;
+    if(currentProject.archived) return "Project_Already_Archived";
     
     // update fields
     currentProject.archived = true;

@@ -62,17 +62,17 @@ export function createProjectController(projectPersistence) {
 };
 
     // handle project archiving
-     function handleArchiveProject(projectId){
-      const archivedproject = archiveProject(projectId);
+     function handleArchiveProject(projectId) {
+    const result = archiveProject(projectId);
 
-    // project archiving failed
-    if(!archivedproject) return false;
+    if (result !== "Project_Archived") {
+        return result;
+    }
 
-    // persist changes
     projectPersistence.save(getProjects());
 
-    return true;
-};
+    return result;
+}
 
    // read operations
 

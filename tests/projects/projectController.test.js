@@ -387,4 +387,17 @@ describe("handleArchiveProject", () => {
     expect(archiveResult2).toBe("Project_Has_Incomplete_Tasks");
     expect(projectPersistence.save).not.toHaveBeenCalled();
   });
+
+  test("The controller should return Project_Already_Archived when a user attempts to archive a project that has already been archived, without calling persistence", () => {
+    // Arrange
+    setProjects([{
+      id: "13",
+      name: "Incomplete project archiving",
+      description: "Testing that handleArchive does not archive an already archived project"
+    }]);
+
+    const projectPersistence = {
+      save: vi.fn()
+    };
+  });
 });

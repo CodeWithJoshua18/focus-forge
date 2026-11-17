@@ -259,7 +259,7 @@ describe("handleUpdateProject", () => {
     const projectPersistence = {
       save: vi.fn(),
     };
-  //  Act
+    //  Act
     const projectController = createProjectController(projectPersistence);
 
     const updateResult = projectController.handleUpdateProject("2", {
@@ -271,18 +271,20 @@ describe("handleUpdateProject", () => {
     expect(projectPersistence.save).not.toHaveBeenCalled();
   });
 
-  test("Empty Updates are rejected",() => {
+  test("Empty Updates are rejected", () => {
     // Arrange
-    setProjects([{
-      id: "9",
-      name: "Empty project test"
-    }]);
+    setProjects([
+      {
+        id: "9",
+        name: "Empty project test",
+      },
+    ]);
 
     const projectPersistence = {
-      save: vi.fn()
+      save: vi.fn(),
     };
 
-    // Act 
+    // Act
     const projectController = createProjectController(projectPersistence);
 
     const emptyUpdate = projectController.handleUpdateProject({});
@@ -294,19 +296,21 @@ describe("handleUpdateProject", () => {
 
   test("Updates with no editable fields are rejected", () => {
     // Arrange
-    setProjects([{
-      id: "1",
-      name: "Focus-forge 3"
-    }]);
+    setProjects([
+      {
+        id: "1",
+        name: "Focus-forge 3",
+      },
+    ]);
 
     const projectPersistence = {
-      save: vi.fn()
+      save: vi.fn(),
     };
 
     // Act
     const projectController = createProjectController(projectPersistence);
     const updateResult1 = projectController.handleUpdateProject("1", {
-      id: "2"
+      id: "2",
     });
 
     // Assert
@@ -315,20 +319,22 @@ describe("handleUpdateProject", () => {
 
   test("Persistence is called after successful update", () => {
     // Arrange
-    setProjects([{
-      id: "4",
-      name: "Focus forge update function",
-      description: "Testing the update controller"
-    }]);
+    setProjects([
+      {
+        id: "4",
+        name: "Focus forge update function",
+        description: "Testing the update controller",
+      },
+    ]);
 
     const projectPersistence = {
-      save: vi.fn()
+      save: vi.fn(),
     };
 
     // Act
     const projectController = createProjectController(projectPersistence);
     const updateResult2 = projectController.handleUpdateProject("4", {
-      name: "Focus-Forge controller functionality update"
+      name: "Focus-Forge controller functionality update",
     });
 
     // Assert
@@ -340,14 +346,16 @@ describe("handleUpdateProject", () => {
 describe("handleArchiveProject", () => {
   test("The controller should return Project_Not_Found when a user tries to archive a project that doesn't exist, without calling persistence", () => {
     // Arrange
-    setProjects([{
-      id: "10",
-      name: "Focus-Forge Archiving functionality",
-      description: "Testing archiving of a non-exsitent project"
-    }]);
+    setProjects([
+      {
+        id: "10",
+        name: "Focus-Forge Archiving functionality",
+        description: "Testing archiving of a non-exsitent project",
+      },
+    ]);
 
     const projectPersistence = {
-      save: vi.fn()
+      save: vi.fn(),
     };
 
     // Act
@@ -358,25 +366,30 @@ describe("handleArchiveProject", () => {
     expect(archiveResult1).toBe("Project_Not_Found");
     expect(projectPersistence.save).not.toHaveBeenCalled();
   });
-  
+
   test("The controller should return Project_Has_Incomplete_Tasks when a user attempts to archive a project containing incomplete tasks, without calling persistence", () => {
     // Arrange
-    setProjects([{
-      id: "12",
-      name: "handleArchiveProject Controller test",
-      description: "Testing that handle archivng controller does not archive a project with incomplete tasks"
-    }]);
+    setProjects([
+      {
+        id: "12",
+        name: "handleArchiveProject Controller test",
+        description:
+          "Testing that handle archivng controller does not archive a project with incomplete tasks",
+      },
+    ]);
 
-    setTasks([{
-      taskId: "1",
-      title: "Test 1",
-      description: "This is the first task assigned to the project",
-      priority: "High",
-      projectId: "12"
-    }]);
+    setTasks([
+      {
+        taskId: "1",
+        title: "Test 1",
+        description: "This is the first task assigned to the project",
+        priority: "High",
+        projectId: "12",
+      },
+    ]);
 
     const projectPersistence = {
-      save: vi.fn()
+      save: vi.fn(),
     };
 
     // Act
@@ -390,14 +403,27 @@ describe("handleArchiveProject", () => {
 
   test("The controller should return Project_Already_Archived when a user attempts to archive a project that has already been archived, without calling persistence", () => {
     // Arrange
-    setProjects([{
-      id: "13",
-      name: "Incomplete project archiving",
-      description: "Testing that handleArchive does not archive an already archived project"
-    }]);
+    setProjects([
+      {
+        id: "13",
+        name: "Incomplete project archiving",
+        description:
+          "Testing that handleArchive does not archive an already archived project",
+        archived: true,
+        status: "completed",
+      },
+    ]);
 
     const projectPersistence = {
-      save: vi.fn()
+      save: vi.fn(),
     };
+
+    // Act
+    const projectController = createProjectController(projectPersistence);
+    const result = projectController.handleArchiveProject("13");
+
+    // Assert
+    expect(result).toBe("Project_Already_Archived");
+    expect(projectPersistence.save).not.toHaveBeenCalled();
   });
 });

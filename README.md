@@ -164,9 +164,11 @@ Current functionality includes:
 - Deleting projects
 - Archiving projects
 - Maintaining the project collection
-Project Controller
+  
+//Project Controller
 Coordinates project operations between the application interface and the project domain.
-Project File Storage
+
+//Project File Storage
 Handles persistence of projects using:
 data/projects.json
 Tasks

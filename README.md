@@ -44,16 +44,17 @@ The system begins with the fundamental entities that represent a learner's work 
 The long-term relationship is:
 
 Projects
-   ↓
+   ->
 Tasks
-   ↓
+   ->
 Work Sessions
-   ↓
+   ->
 Productive Activity
-   ↓
+   ->
 Progress
-   ↓
-Feedback
+   ->
+Feedback.
+
 A Project represents a larger piece of work or learning objective.
 
 A Task represents an actionable unit of work belonging to a project.

@@ -1,4 +1,6 @@
 Focus Forge
+
+
 Focus Forge is a productivity-focused system designed to help learners and developers build discipline, organize their work, track productive activity, and measure meaningful progress.
 
 Unlike traditional screen-time monitoring tools that focus on limiting device usage, Focus Forge is designed around rewarding productive learning and development activity.

@@ -42,6 +42,7 @@ Focus Forge is being built from the inside out.
 The system begins with the fundamental entities that represent a learner's work and gradually builds toward tracking, analytics, and gamification.
 
 The long-term relationship is:
+
 Projects
    ↓
 Tasks
